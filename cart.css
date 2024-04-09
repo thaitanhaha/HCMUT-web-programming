@@ -1,0 +1,16 @@
+button {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dd7788;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cc6688;
+}

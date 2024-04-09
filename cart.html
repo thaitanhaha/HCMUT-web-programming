@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Page</title>
+
+    <link rel="stylesheet" href="./cart.css" />
+
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: #eeeeee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        height: 10vh;
+        width: 100vw;
+        background-color: #f6f6f6;
+        box-shadow: inset;
+        padding-left: 8vw;
+        padding-right: 8vw;
+      "
+    >
+      <div style="display: flex; align-items: center; gap: 8px">
+        <img src="./assets/shark.svg" style="height: 7vh" />
+        <span style="font-size: larger; font-weight: 600">Grocery</span>
+      </div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        margin-top: 100px;
+        border-radius: 8px;
+        background-color: white;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        height: 10vh;
+        padding-left: 24px;
+        gap: 4px;
+      "
+    >
+      <span
+        style="
+          display: flex;
+          font-size: medium;
+          font-weight: 600;
+          color: #9e9da8;
+        "
+        >Home</span
+      >
+
+      <img src="./assets/right-arrow.svg" style="width: 1vw; height: 1vw" />
+
+      <span
+        style="
+          display: flex;
+          font-size: medium;
+          font-weight: 600;
+          margin-left: 4px;
+        "
+        >Grocery</span
+      >
+    </div>
+
+    <div style="display: flex; gap: 40px; margin-left: 8vw; margin-right: 8vw">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          border-radius: 12px;
+          width: 65%;
+          height: 100vh;
+          background-color: white;
+          margin-top: 40px;
+          overflow-y: auto;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            gap: 32px;
+            border-bottom: #d2d1d6 2px solid;
+            margin-left: 2vw;
+            margin-right: 2vw;
+          "
+        >
+          <img
+            style="
+              width: 12vw;
+              height: 20vh;
+              background-color: white;
+              border-radius: 8px;
+              object-fit: cover;
+            "
+            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ada98051-db05-43f0-8e0a-d055229ff714/hyverse-dri-fit-uv-protection-short-sleeve-fitness-top-Fc1dwL.png"
+          />
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              margin-top: 4px;
+              justify-content: space-between;
+            "
+          >
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <span style="font-weight: 600; font-size: larger; width: 28vw">
+                Men's Dri-FIT UV Protection Short-Sleeve
+              </span>
+
+              <div style="display: flex; gap: 6px; align-items: center">
+                <span
+                  style="color: #9e9da8; font-size: large; font-weight: 500"
+                >
+                  900.000 VND
+                </span>
+                <div
+                  style="width: 2px; height: 3vh; background-color: #9e9da8"
+                ></div>
+                <span
+                  style="color: #dd7788; font-size: large; font-weight: 500"
+                >
+                  In Stock
+                </span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row; gap: 24px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  border-radius: 8px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  width: fit-content;
+                  border: #dd7788 1px solid;
+                "
+              >
+                <button>-</button>
+                <span style="font-weight: 500; font-size: large">1</span>
+                <button>+</button>
+              </div>
+
+              <button style="padding-left: 24px; padding-right: 24px">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            gap: 32px;
+            border-bottom: #d2d1d6 2px solid;
+          "
+        >
+          <img
+            style="
+              width: 12vw;
+              height: 20vh;
+              background-color: white;
+              border-radius: 8px;
+              object-fit: cover;
+            "
+            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ada98051-db05-43f0-8e0a-d055229ff714/hyverse-dri-fit-uv-protection-short-sleeve-fitness-top-Fc1dwL.png"
+          />
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              margin-top: 4px;
+              justify-content: space-between;
+            "
+          >
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <span style="font-weight: 600; font-size: larger; width: 28vw">
+                Men's Dri-FIT UV Protection Short-Sleeve
+              </span>
+
+              <div style="display: flex; gap: 6px; align-items: center">
+                <span
+                  style="color: #9e9da8; font-size: large; font-weight: 500"
+                >
+                  900.000 VND
+                </span>
+                <div
+                  style="width: 2px; height: 3vh; background-color: #9e9da8"
+                ></div>
+                <span
+                  style="color: #dd7788; font-size: large; font-weight: 500"
+                >
+                  In Stock
+                </span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row; gap: 24px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  border-radius: 8px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  width: fit-content;
+                  border: #dd7788 1px solid;
+                "
+              >
+                <button>-</button>
+                <span style="font-weight: 500; font-size: large">1</span>
+                <button>+</button>
+              </div>
+
+              <button style="padding-left: 24px; padding-right: 24px">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            gap: 32px;
+            border-bottom: #d2d1d6 2px solid;
+            margin-left: 2vw;
+            margin-right: 2vw;
+          "
+        >
+          <img
+            style="
+              width: 12vw;
+              height: 20vh;
+              background-color: white;
+              border-radius: 8px;
+              object-fit: cover;
+            "
+            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ada98051-db05-43f0-8e0a-d055229ff714/hyverse-dri-fit-uv-protection-short-sleeve-fitness-top-Fc1dwL.png"
+          />
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              margin-top: 4px;
+              justify-content: space-between;
+            "
+          >
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <span style="font-weight: 600; font-size: larger; width: 28vw">
+                Men's Dri-FIT UV Protection Short-Sleeve
+              </span>
+
+              <div style="display: flex; gap: 6px; align-items: center">
+                <span
+                  style="color: #9e9da8; font-size: large; font-weight: 500"
+                >
+                  900.000 VND
+                </span>
+                <div
+                  style="width: 2px; height: 3vh; background-color: #9e9da8"
+                ></div>
+                <span
+                  style="color: #dd7788; font-size: large; font-weight: 500"
+                >
+                  In Stock
+                </span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row; gap: 24px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  border-radius: 8px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  width: fit-content;
+                  border: #dd7788 1px solid;
+                "
+              >
+                <button>-</button>
+                <span style="font-weight: 500; font-size: large">1</span>
+                <button>+</button>
+              </div>
+
+              <button style="padding-left: 24px; padding-right: 24px">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            gap: 32px;
+            border-bottom: #d2d1d6 2px solid;
+            margin-left: 2vw;
+            margin-right: 2vw;
+          "
+        >
+          <img
+            style="
+              width: 12vw;
+              height: 20vh;
+              background-color: white;
+              border-radius: 8px;
+              object-fit: cover;
+            "
+            src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ada98051-db05-43f0-8e0a-d055229ff714/hyverse-dri-fit-uv-protection-short-sleeve-fitness-top-Fc1dwL.png"
+          />
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              margin-top: 4px;
+              justify-content: space-between;
+            "
+          >
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <span style="font-weight: 600; font-size: larger; width: 28vw">
+                Men's Dri-FIT UV Protection Short-Sleeve
+              </span>
+
+              <div style="display: flex; gap: 6px; align-items: center">
+                <span
+                  style="color: #9e9da8; font-size: large; font-weight: 500"
+                >
+                  900.000 VND
+                </span>
+                <div
+                  style="width: 2px; height: 3vh; background-color: #9e9da8"
+                ></div>
+                <span
+                  style="color: #dd7788; font-size: large; font-weight: 500"
+                >
+                  In Stock
+                </span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row; gap: 24px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  border-radius: 8px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  width: fit-content;
+                  border: #dd7788 1px solid;
+                "
+              >
+                <button>-</button>
+                <span style="font-weight: 500; font-size: large">1</span>
+                <button>+</button>
+              </div>
+
+              <button style="padding-left: 24px; padding-right: 24px">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          border-radius: 12px;
+          width: 35%;
+          background-color: white;
+          margin-top: 40px;
+          height: fit-content;
+          padding-top: 40px;
+          padding-bottom: 40px;
+          gap: 20px;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+            margin-right: 30px;
+          "
+        >
+          <span style="font-weight: 500; font-size: x-large"
+            >Subtotal
+            <span style="color: #9e9da8; font-weight: 500">(items)</span></span
+          >
+
+          <span style="font-weight: 600; font-size: x-large">4 </span>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+            margin-right: 30px;
+          "
+        >
+          <span style="font-weight: 500; font-size: x-large"
+            >Price
+            <span style="color: #9e9da8; font-weight: 500">(Total)</span></span
+          >
+
+          <span style="font-weight: 600; font-size: x-large">3.600.000</span>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+            margin-right: 30px;
+          "
+        >
+          <span style="font-weight: 500; font-size: x-large">Shipping </span>
+
+          <span style="font-weight: 600; font-size: x-large">40.000</span>
+        </div>
+
+        <div
+          style="
+            height: 2px;
+            background-color: #d2d1d6;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          "
+        ></div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+            margin-right: 30px;
+          "
+        >
+          <span style="font-weight: 500; font-size: x-large"
+            >Estimated Total</span
+          >
+
+          <span style="font-weight: 600; font-size: x-large">3.640.000</span>
+        </div>
+
+        <button
+          style="
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-top: 10px;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            border-radius: 16px;
+          "
+        >
+          Continue to checkout
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
