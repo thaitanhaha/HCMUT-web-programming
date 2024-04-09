@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Locatepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      a {
+        text-decoration: none;
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Trợ giúp</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hệ  thống cửa hàng</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tiếng Việt</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span>|</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">English</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar-->
+      <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #77DD77; top:56px">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">LOGO</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link data-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  NỮ
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">ÁO</a></li>
+                  <li><a class="dropdown-item" href="#">QUẦN</a></li>
+                  <li><a class="dropdown-item" href="#">ĐỒ MẶC NGOÀI</a></li>
+                  <li><a class="dropdown-item" href="#">PHỤ KIỆN</a></li>
+                  <li><a class="dropdown-item" href="#">ĐÔ MẶC TRONG</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">BỘ SƯU TẬP THU ĐÔNG</a></li>
+                  <li><a class="dropdown-item" href="#">TOP BÁN CHẠY</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link data-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  NAM
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">ÁO</a></li>
+                  <li><a class="dropdown-item" href="#">QUẦN</a></li>
+                  <li><a class="dropdown-item" href="#">ĐỒ MẶC NGOÀI</a></li>
+                  <li><a class="dropdown-item" href="#">PHỤ KIỆN</a></li>
+                  <li><a class="dropdown-item" href="#">ĐÔ MẶC TRONG</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">BỘ SƯU TẬP THU ĐÔNG</a></li>
+                  <li><a class="dropdown-item" href="#">TOP BÁN CHẠY</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">YÊU THÍCH</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">GIỎ HÀNG</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ĐĂNG NHẬP</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main -->
+      <div class="container-fluid" style="width: 90%">
+        <section>
+            <h1>Hệ thống cửa hàng</h1>
+            <hr>
+        </section>
+        <section>
+            <div class="input-group mb-3" style="width: 50%;">
+                <input type="text" class="form-control" placeholder="Mã bưu chính, địa chỉ, tên của hàng" aria-label="Mã bưu chính, địa chỉ, tên của hàng" aria-describedby="basic-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+            </div>
+            <p><i class="bi bi-geo-alt-fill"></i><a href="#" style="color: black; text-decoration: underline">Sử dụng vị trí hiện tại</a></p>
+        </section>
+        <section>
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="assets/googlemap.jpg" alt="">
+                        <p>API Google map here !!!</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3>Tất cả cửa hàng</h3>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 1</h5>
+                            <p>Cửa hàng lớn</p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 2</h5>
+                            <p>Cửa hàng lớn</p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 3</h5>
+                            <p>Cửa hàng tiêu chuẩn</p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 4</h5>
+                            <p>Cửa hàng tiêu chuẩn</p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 5</h5>
+                            <p>Cửa hàng vừa</p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h5>"HÃNG" QUẬN 9</h5>
+                            <p>Cửa hàng nhỏ</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+      </div>
+      <!-- Footer -->
+      <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Về "HÃNG"
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Thông tin</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Danh sách cửa hàng</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Cơ hội nghề nghiệp</a>
+                </p>
+              </div>
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Trợ giúp
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">FAQ</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Chính sách trả hàng</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Chính sách bảo mật</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Tiếp cận</a>
+                </p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Tài khoản
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Tư cách thành viên</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Hồ sơ</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Coupons</a>
+                </p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Kết nối với chúng tôi
+                </h6>
+                <p>
+                  <a href="" class="me-4 text-reset">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                </p>
+                <p>
+                  <a href="" class="me-4 text-reset">
+                    <i class="bi bi-twitter"></i>
+                  </a>
+                </p>
+                <p>
+                  <a href="" class="me-4 text-reset">
+                    <i class="bi bi-google"></i>
+                  </a>
+                </p>
+                <p>
+                  <a href="" class="me-4 text-reset">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                </p>
+              </div>
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
+                <p><i class="bi bi-house"></i> Thành phố Hồ Chí Minh, Việt Nam</p>
+                <p>
+                  <i class="bi bi-envelope"></i>
+                  info@example.com
+                </p>
+                <p><i class="bi bi-telephone"></i> + 01 234 567 88</p>
+                <p><i class="bi bi-printer"></i> + 01 234 567 89</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
