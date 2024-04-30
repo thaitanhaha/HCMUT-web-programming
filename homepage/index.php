@@ -6,6 +6,12 @@
     <title>Clothing Store</title>
   </head>
 
+  <?php
+  
+
+
+  ?>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -157,7 +163,7 @@
           gap: 12px;
           position: absolute;
           z-index: 20;
-          top: 12em;
+          top: 14em;
           left: 10em;
         "
       >
@@ -169,7 +175,7 @@
           display: flex;
           flex-direction: column;
           position: absolute;
-          top: 12em;
+          top: 14em;
           left: 8em;
           width: 45em;
           color: white;
@@ -181,10 +187,6 @@
           BỘ SƯU TẬP MÙA HÈ 2024 BÁCH KHOA X GUCCI mang lại một bộ sưu tập đặc
           sắc tôn vinh tinh thần mùa hè.
         </p>
-
-        <button class="buttonBuy" style="width: 10em; height: 5em">
-          <strong>Khám phá ngay</strong>
-        </button>
       </div>
     </div>
 
@@ -207,8 +209,8 @@
           display: flex;
           flex-direction: column;
           position: absolute;
-          top: 10em;
-          left: 10em;
+          top: 6em;
+          left: 14em;
           font-size: 20px;
         "
       >
@@ -246,12 +248,14 @@
         <span style="color: red; margin-left: 4px">
           Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024
         </span>
-        <button
-          class="buttonBuy"
-          style="width: 10em; height: 5em; margin-top: 20px"
-        >
-          <strong>Khám phá ngay</strong>
-        </button>
+        <a href="http://localhost/btl/web-programming/list/index.php?name=summer_short">
+          <button
+            class="buttonBuy"
+            style="width: 10em; height: 5em; margin-top: 20px"
+          >
+            <strong>Khám phá ngay</strong>
+          </button>
+        </a>
       </div>
     </div>
 
@@ -267,7 +271,6 @@
         src="https://im.uniqlo.com/global-cms/spa/res65a2144c4e82b9120cf5b9f9d57ea5b0fr.jpg"
         style="width: 100%; height: 100%"
       />
-      <div class="bannerOverlay"></div>
 
       <div
         style="
@@ -312,12 +315,14 @@
         <span style="color: red; margin-left: 4px">
           Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024
         </span>
-        <button
-          class="buttonBuy"
-          style="width: 10em; height: 5em; margin-top: 20px"
-        >
-          <strong>Khám phá ngay</strong>
-        </button>
+        <a href="http://localhost/btl/web-programming/list/index.php?name=summer_pant">
+          <button
+            class="buttonBuy"
+            style="width: 10em; height: 5em; margin-top: 20px"
+          >
+            <strong>Khám phá ngay</strong>
+          </button>
+        </a>
       </div>
     </div>
 
@@ -333,7 +338,6 @@
         src="https://im.uniqlo.com/global-cms/spa/res67c00825737661258d7691e2ab4ea1a2fr.jpg"
         style="width: 100%; height: 100%"
       />
-      <div class="bannerOverlay"></div>
 
       <div
         style="
@@ -379,12 +383,14 @@
         <span style="color: red; margin-left: 4px">
           Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024
         </span>
-        <button
-          class="buttonBuy"
-          style="width: 10em; height: 5em; margin-top: 20px"
-        >
-          <strong>Khám phá ngay</strong>
-        </button>
+        <a href="http://localhost/btl/web-programming/list/index.php?name=summer_skirt">
+          <button
+            class="buttonBuy"
+            style="width: 10em; height: 5em; margin-top: 20px"
+          >
+            <strong>Khám phá ngay</strong>
+          </button>
+        </a>
       </div>
     </div>
 
@@ -400,7 +406,6 @@
         src="https://im.uniqlo.com/global-cms/spa/res448c0c782bc1aae07ddc2dffd47fb4bcfr.jpg"
         style="width: 100%; height: 100%"
       />
-      <div class="bannerOverlay"></div>
 
       <div
         style="
@@ -425,13 +430,14 @@
         >
           Chuyến dã ngoại vào ngày hè rực nắng. Ra mắt ngày 10.05.2024
         </p>
-
-        <button
-          class="buttonBuy"
-          style="width: 10em; height: 4em; margin-top: 20px"
-        >
-          <strong style="color: black">XEM THÊM</strong>
-        </button>
+        <a href="http://localhost/btl/web-programming/list/index.php?name=summer_marimekko">
+          <button
+            class="buttonBuy"
+            style="width: 10em; height: 4em; margin-top: 20px; z-index:40"
+          >
+          XEM THÊM 
+          </button>
+        </a>
       </div>
     </div>
 
@@ -447,7 +453,6 @@
         src="https://im.uniqlo.com/global-cms/spa/res1a8dcafda57c23c799ac9c38ebd71f91fr.jpg"
         style="width: 100%; height: 100%"
       />
-      <div class="bannerOverlay"></div>
 
       <div
         style="
@@ -471,13 +476,15 @@
           Bộ suu tập đặc biệt về trò chơi Minecraft nổi tiếng thế giới. Ra mắt
           ngày 10.05.2024
         </p>
+        <a href="http://localhost/btl/web-programming/list/index.php?name=summer_minecraft">
+          <button
+            class="buttonBuy"
+            style="width: 10em; height: 4em; margin-top: 20px"
+          >
+            <strong style="color: black">XEM THÊM</strong>
+          </button>
+        </a>
 
-        <button
-          class="buttonBuy"
-          style="width: 10em; height: 4em; margin-top: 20px"
-        >
-          <strong style="color: black">XEM THÊM</strong>
-        </button>
       </div>
     </div>
 

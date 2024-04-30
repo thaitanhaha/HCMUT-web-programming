@@ -20,6 +20,37 @@
 
   <style></style>
 
+    <?php
+      $servername= "localhost";
+      $username= "root";
+      $password= "";
+      $dbname= "btl";
+
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      if ($conn->connect_error) {
+        die("". $conn->connect_error);
+      }
+
+      $idproduct = $_GET['id'];
+
+      $sql = "SELECT * FROM product WHERE id = $idproduct";
+      $result = $conn->query($sql);
+      $rowproduct = $result->fetch_assoc();
+
+
+      $sql1 = "SELECT * FROM image WHERE id_product = $rowproduct[id]";
+
+      $result1 = $conn->query($sql1);
+      $rowImage = $result1->fetch_assoc();
+
+      $imagepanel = json_decode($rowImage['src_images'], true);
+  
+      
+
+
+    ?>
+
   <body>
     <header>
       <div
@@ -120,66 +151,33 @@
 
 
           <!-- Left pane -->
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-            </div>
+          <div id="imagePanel" style="display: grid; grid-template-columns: 50px 50px; grid-auto-rows: 50px; gap:16px;">
 
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-            </div>
+            <?php
+              foreach ($imagepanel as $key => $value) {
+                echo "<img src='$value' 
+                            style='width: 60px; height: 60px; border: 1px solid black'
+                            onClick='changeImage(\"$value\")'></img>";
+              }
+            ?>
 
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-              <div style="padding: 5px; border: 1px solid black">
-                <img
-                  width="50px"
-                  height="50px"
-                  src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg?width=60"
-                />
-              </div>
-            </div>
+            <script>
+              function changeImage(source) {
+                // Get the reference to the image element in the selectedImagePane
+                var primaryImage = document.getElementById('primaryImage');
+                // Change the source of the image to the clicked thumbnail
+                primaryImage.src = source;
+              }
+            </script>
+
           </div>
 
 
           <!-- Middle pane -->
           <div style="display: flex; width: 100%; height: 30em;">
-            <img
-            style="width: 100%;"
-            src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/464426/item/vngoods_62_464426.jpg"
-            ></img>
+            <?php
+              echo "<img id='primaryImage' src='$rowproduct[primary_image]' style='width: 100%; height: 100%'></img>";
+            ?>
           </div>
 
         </div>
@@ -258,47 +256,76 @@
           "
           >
         <span style="font-size: 50px; margin-top: 10px; font-weight: bold;">
-          <strong>Áo thun cổ tròn</strong>
+          <?php
+            echo "<strong>$rowproduct[name]</strong>"
+          ?>
         </span>
-        <span style="text-decoration: line-through; font-size: 20px; font-weight: bold;">489.000 VND</span>
-        <span style="font-size: 40px; font-weight: bold; color: red;">389.000 VND</span>
+        <span style="text-decoration: line-through; font-size: 20px; font-weight: bold;">
+          <?php
+            $price = $rowproduct['price'];
+            $formatted_price = number_format($price, 0, '.', '.');
+            echo "<strong>$formatted_price VND</strong>";
+          ?>
+        </span>
+        <span style="font-size: 40px; font-weight: bold; color: red;">
+          <?php
+            $price = $rowproduct['price'];
+            $percent = $rowproduct['percentdiscount'];
+            $discount = $price * $percent / 100;
+            $newprice = $price - ($price * $percent /100);
+            $final_price = floor($newprice);
+            $formatted_price = number_format($final_price, 0, '.', '.');
+            echo "<strong>$formatted_price VND</strong>";
+          ?>
+        </span>
 
-        <span style="font-size: 20px; color: red; font-weight: 500; margin-top: 8px; width: 16em;">Limited Offer Từ 26 Apr 2024 - 02 May 2024</span>
+        <span style="font-size: 20px; color: red; font-weight: 500; margin-top: 8px; width: 16em;">
+          <?php
+            echo "<strong>$rowproduct[descriptiondiscount]</strong>";
+          ?>
+        </span>
 
         <div style="width: 100%; background-color: #DADADA; height: 1px; margin-top: 20px; margin-bottom: 20px;"></div>
 
-        <span style="font-weight: bold; font-size: 16px;">MÀU SẮC: 00 WHITE</span>
-        <div style="display: flex; align-items: center; gap: 12px">
-          <div style="width: 50px; height: 50px; background-color: #F3F2F0; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #C4C5CA; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #28272C; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #E0D5C1; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #E1DA7F; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #BFC4A5; cursor: pointer;"></div>
-          <div style="width: 50px; height: 50px; background-color: #C2D5D9; cursor: pointer;"></div>
+        <span id="colorName" style="font-weight: bold; font-size: 16px;">MÀU SẮC: 00 WHITE</span>
+        <div style="display: flex; align-items: center; gap: 8px">
+          <?php
+            $colorpanel = json_decode($rowImage['src_colors'], true);
+            foreach ($colorpanel as $key => $value) {
+              echo "<img src='$value' 
+                          style='width: 60px; height: 60px; border: 1px solid black'
+                          onClick='updatePrimaryImage(\"$value\" , \"$key\")'></img>";
+            }
+          ?>
+         <script>
+              function updatePrimaryImage(source, name) {
+                var primaryImage = document.getElementById('primaryImage');
+                var colorName = document.getElementById('colorName');
+
+                primaryImage.src = source;
+                colorName.innerHTML = name;
+              }
+          </script>
         </div>
 
 
-        <span style="font-weight: bold; font-size: 16px; margin-top: 16px;">KÍCH CỠ: NỮ S</span>
+        <span id="sizeName" style="font-weight: bold; font-size: 16px; margin-top: 16px;">KÍCH CỠ: S</span>
         <div style="display: flex; align-items: center; gap: 12px">
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          XS
-         </div>
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          X
-         </div>
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          M
-         </div>
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          L
-         </div>
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          XL
-         </div>
-         <div style="display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid">
-          XXL
-         </div>
+          <?php
+              $sizes = array("XS", "S", "M", "L", "XL", "XXL");
+              foreach ($sizes as $size) {
+                echo "<div style='display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid' onClick='updateSizename(\"$size\")'>";
+                echo $size; 
+                echo '</div>';
+              }
+          ?>
+          <script>
+              function updateSizename(size) {
+                var sizeName = document.getElementById('sizeName');
+
+                sizeName.innerHTML = "KÍCH CỠ: " + size;
+              }
+          </script>
         </div>
 
 
@@ -430,7 +457,47 @@
       <span style="display: flex; width: 100%; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; margin-top: 4em; margin-bottom: 0.5em;">
         SẢN PHẨM THƯỜNG ĐƯỢC MUA KÈM
       </span>
-      <a>
+      <div style="display: flex; align-items: center; gap:16px;">
+            <?php
+              $similar_ids = json_decode($rowproduct['similar_ids'], true);
+              $ids = $similar_ids['ids'];
+              for ($i = 0; $i < count($ids); $i++) {
+                $similar_id = $ids[$i];
+
+
+                $sql = "SELECT * FROM product WHERE id = $similar_id";
+                $result = $conn->query($sql);
+                $rowproduct = $result->fetch_assoc();
+
+                $price = $rowproduct['price'];
+                $formatted_price = number_format($price, 0, '.', '.');
+
+                echo "
+                  <a style='text-decoration: none' href='http://localhost/btl/web-programming/detail/?id=$rowproduct[id]'>
+                    <div style='display: flex; flex-direction: column; gap:1em; height:40em;'>
+                      <img style='width: 20em; height:20em;' src='$rowproduct[primary_image]'></img>
+                      <div style='display: flex; align-items: center; gap:6px'>
+                        <div style='width: 16px; height: 16px; background-color: green; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: blue; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: yellow; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: pink; border: 1px solid black;'></div>
+                      </div>
+            
+                      <div style='display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;'>
+                        <span style='color: gray; font-weight: 600;'>NAM / NỮ</span>
+                        <span style='color: gray; font-weight: 600;'>XS-XXL</span>
+                      </div>
+            
+                      <span style='font-weight: 800; font-size: 20px; color:black'>$rowproduct[name]</span>
+                      <span style='font-weight: 600; font-size: 16px; color:gray'>$formatted_price VND</span>
+                    </div>
+                  </a>
+                ";
+              }
+            ?>
+      </div>
+
+      <!-- <a>
       <div style="display: flex; align-items: center; gap:2.5em;">
         <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
           <img src="https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
@@ -510,7 +577,7 @@
 
 
       </div>
-      </a>
+      </a> -->
 
 
     </div>
