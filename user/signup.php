@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div
@@ -28,7 +28,7 @@
         "
       >
         <img
-          src="./assets/shark.svg"
+          src="../assets/shark.svg"
           style="width: 40vw; height: 40vh; margin-top: -20px"
         />
       </div>
@@ -43,61 +43,61 @@
           padding-top: 20vh;
         "
       >
-        <h1>Sign Up Form</h1>
+        <h1>Welcome to BTL Lap Trinh Web</h1>
 
         <form action="#" style="width: 30vw" id="signupForm">
           <div style="display: flex; flex-direction: column">
-            <label style="font-weight: 700" for="fullName">Full name</label>
+            <label style="font-weight: 700" for="fullName">Họ và tên</label>
             <input
               type="text"
               id="fullName"
               name="fullName"
-              placeholder="Full name..."
+              placeholder="Nhập họ và tên của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
 
           <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="account">Account</label>
+            <label style="font-weight: 700" for="account">Tài khoản</label>
             <input
               type="text"
               id="account"
               name="account"
-              placeholder="Your account..."
+              placeholder="Nhập tài khoản của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
           <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="password">Password</label>
+            <label style="font-weight: 700" for="password">Mật khẩu</label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Your password..."
+              placeholder="Nhập mật khẩu của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
           <div style="display: flex; flex-direction: column; margin-top: 24px">
             <label style="font-weight: 700" for="confirmPassword"
-              >Confirm password</label
+              >Xác nhận mật khẩu</label
             >
             <input
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              placeholder="Your password..."
+              placeholder="Nhập mật khẩu của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
 
           <button type="submit" style="width: 31.5vw; margin-top: 24px">
-            Sign Up
+            Đăng ký
           </button>
         </form>
 
         <div style="margin-top: 24px">
           <span style="font-size: small; font-weight: 600; color: gray"
-            >Already have an account, click here to
+            >Bạn đã có tài khoản, bấm đây để đăng nhập
           </span>
           <a
             href="signin.html"
@@ -106,7 +106,7 @@
               color: #007bff;
               text-decoration: underline;
             "
-            >Sign In</a
+            >Đăng nhập</a
           >
         </div>
       </div>
