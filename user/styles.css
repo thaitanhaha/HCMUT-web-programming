@@ -35,7 +35,7 @@ input[type="password"] {
 }
 
 input[type="text"]:focus {
-  border: px solid #dd7788;
+  border: px solid black;
 }
 
 .form-group.checkbox {
@@ -52,7 +52,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #dd7788;
+  background-color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -60,5 +60,5 @@ button {
 }
 
 button:hover {
-  background-color: #cc6688;
+  background-color: gray;
 }
