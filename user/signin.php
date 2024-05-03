@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In Form</title>
-    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div
@@ -28,7 +28,7 @@
         "
       >
         <img
-          src="./assets/shark.svg"
+          src="../assets/shark.svg"
           style="width: 40vw; height: 40vh; margin-top: -20px"
         />
       </div>
@@ -43,38 +43,38 @@
           padding-top: 20vh;
         "
       >
-        <h1>Sign In Form</h1>
+        <h1>Welcome to BTL Lap Trinh Web</h1>
 
         <form action="#" style="width: 30vw" id="signupForm">
           <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="account">Account</label>
+            <label style="font-weight: 700" for="account">Tài khoản</label>
             <input
               type="text"
               id="account"
               name="account"
-              placeholder="Your account..."
+              placeholder="Nhập tài khoản của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
           <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="password">Password</label>
+            <label style="font-weight: 700" for="password">Mật khẩu</label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Your password..."
+              placeholder="Nhập mật khẩu của bạn..."
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
 
           <button type="submit" style="width: 31.5vw; margin-top: 24px">
-            Sign In
+            Đăng nhập
           </button>
         </form>
 
         <div style="margin-top: 24px">
           <span style="font-size: small; font-weight: 600; color: gray"
-            >Don't have an account, click here to
+            >Bạn chưa có tài khoản, bấm đây để đăng ký
           </span>
           <a
             href="signup.html"
@@ -83,7 +83,7 @@
               color: #007bff;
               text-decoration: underline;
             "
-            >Sign Up</a
+            >Đăng ký</a
           >
         </div>
       </div>
