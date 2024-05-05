@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <header>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        padding: 0px 10em 0px 10em;
+        gap: 16px;
+        height: 2.5em;
+        cursor: pointer;
+        background-color: #f4f4f4;
+      "
+    >
+      <span> Đăng nhập </span>
+      <span> Hệ thống cửa hàng </span>
+      <span> English | <strong>Tiếng Việt</strong> </span>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        height: 4em;
+        justify-content: space-between;
+        background-color: white;
+        border-bottom: #cccccc 1px solid;
+        padding-left: 10em;
+        padding-right: 10em;
+      "
+    >
+      <div style="display: flex; gap: 2.5em; align-items: center">
+        <a href="http://localhost/btl/web-programming/homepage/">
+          <img
+            src="../assets/shark.svg"
+            style="width: 3em; height: 3em; margin-right: 40px"
+          />
+        </a>
+
+        <strong>NỮ</strong>
+        <strong>NAM</strong>
+        <strong>TRẺ EM</strong>
+        <strong>TRẺ SƠ SINH</strong>
+      </div>
+
+      <div style="display: flex; gap: 2.5em; align-items: center">
+        <img src="../assets/magnifyingglass.svg" style="height: 2.5em" />
+        <img src="../assets/person.svg" style="height: 2em" />
+        <img src="../assets/heart.svg" style="height: 2em" />
+        <img src="../assets/cart.svg" style="height: 2em" />
+      </div>
+    </div>
+  </header>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0px 0px 100px 0px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    .form-group textarea {
+      height: 100px;
+    }
+
+    .form-group input[type="number"]::-webkit-inner-spin-button,
+    .form-group input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: black;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: gray;
+    }
+  </style>
+
+  <body>
+    <div
+      style="display: flex; flex-direction: column; padding: 2em 10em 0px 10em"
+    >
+      <h1>THÊM SẢN PHẨM MỚI</h1>
+      <div class="container">
+        <form class="form-container">
+          <div class="form-group">
+            <label for="product_name">Tên Sản Phẩm:</label>
+            <input required type="text" id="product_name" name="product_name" />
+          </div>
+
+          <div class="form-group">
+            <label for="price">Giá:</label>
+            <input required type="number" id="price" name="price" />
+          </div>
+
+          <div class="form-group">
+            <label for="percent_discount">Phần Trăm Giảm Giá:</label>
+            <input
+              type="number"
+              required
+              id="percent_discount"
+              name="percent_discount"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="description_discount">Mô Tả Giảm Giá:</label>
+            <textarea
+              required
+              id="description_discount"
+              name="description_discount"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="primary_image">Ảnh Chính:</label>
+            <input
+              required
+              type="text"
+              id="primary_image"
+              name="primary_image"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="id_similar_products"
+              >ID sản phẩm tương tự (e.g. 1, 2, 3, 4):</label
+            >
+            <input
+              required
+              type="text"
+              id="id_similar_products"
+              name="id_similar_products"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="id_comment">ID comment (e.g. 1, 2, 3, 4):</label>
+            <input required type="text" id="id_comment" name="id_comment" />
+          </div>
+
+          <button
+            style="
+              width: 140px;
+              height: 50px;
+              background-color: white;
+              border: 1px black solid;
+              cursor: pointer;
+            "
+            type="submit"
+          >
+            Thêm sản phẩm
+          </button>
+        </form>
+      </div>
+
+      <h1 style="margin-top: 4em">THÊM HÌNH CHO SẢN PHẨM</h1>
+      <div class="container">
+        <form class="form-container">
+          <div class="form-group">
+            <label for="id_product">ID sản phẩm</label>
+            <input required type="number" id="id_product" name="id_product" />
+          </div>
+
+          <div class="form-group">
+            <label for="color_label">Nhãn màu ("00 WHITE", "19 GRAY")</label>
+            <input required type="text" id="color_label" name="color_label" />
+          </div>
+
+          <div class="form-group">
+            <label for="color_source"
+              >Source màu (cùng số lượng với nhãn màu)</label
+            >
+            <textarea
+              required
+              type="text"
+              id="color_source"
+              name="color_source"
+            >
+            </textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="image_label">Nhãn hình ("image1", "image2")</label>
+            <input required type="text" id="image_label" name="image_label" />
+          </div>
+
+          <div class="form-group">
+            <label for="image_source"
+              >Source hình (cùng số lượng với nhãn hình)</label
+            >
+            <textarea
+              required
+              type="text"
+              id="image_source"
+              name="image_source"
+            >
+            </textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="image_label">Nhãn style ("style1", "style2")</label>
+            <input required type="text" id="image_label" name="image_label" />
+          </div>
+
+          <div class="form-group">
+            <label for="image_source"
+              >Source style (cùng số lượng với nhãn style)</label
+            >
+            <textarea
+              required
+              type="text"
+              id="image_source"
+              name="image_source"
+            >
+            </textarea>
+          </div>
+
+          <button
+            style="
+              width: 100px;
+              height: 50px;
+              background-color: white;
+              border: 1px black solid;
+              cursor: pointer;
+            "
+            type="submit"
+          >
+            Thêm hình
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
