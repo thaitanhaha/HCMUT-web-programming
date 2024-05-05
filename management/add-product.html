@@ -122,21 +122,22 @@
     >
       <h1>THÊM SẢN PHẨM MỚI</h1>
       <div class="container">
-        <div class="form-container">
+        <form class="form-container">
           <div class="form-group">
             <label for="product_name">Tên Sản Phẩm:</label>
-            <input type="text" id="product_name" name="product_name" />
+            <input required type="text" id="product_name" name="product_name" />
           </div>
 
           <div class="form-group">
             <label for="price">Giá:</label>
-            <input type="number" id="price" name="price" />
+            <input required type="number" id="price" name="price" />
           </div>
 
           <div class="form-group">
             <label for="percent_discount">Phần Trăm Giảm Giá:</label>
             <input
               type="number"
+              required
               id="percent_discount"
               name="percent_discount"
             />
@@ -145,6 +146,7 @@
           <div class="form-group">
             <label for="description_discount">Mô Tả Giảm Giá:</label>
             <textarea
+              required
               id="description_discount"
               name="description_discount"
             ></textarea>
@@ -152,7 +154,12 @@
 
           <div class="form-group">
             <label for="primary_image">Ảnh Chính:</label>
-            <input type="text" id="primary_image" name="primary_image" />
+            <input
+              required
+              type="text"
+              id="primary_image"
+              name="primary_image"
+            />
           </div>
 
           <div class="form-group">
@@ -160,6 +167,7 @@
               >ID sản phẩm tương tự (e.g. 1, 2, 3, 4):</label
             >
             <input
+              required
               type="text"
               id="id_similar_products"
               name="id_similar_products"
@@ -167,49 +175,100 @@
           </div>
 
           <div class="form-group">
-            <input type="submit" value="Thêm sản phẩm" />
+            <label for="id_comment">ID comment (e.g. 1, 2, 3, 4):</label>
+            <input required type="text" id="id_comment" name="id_comment" />
           </div>
-        </div>
+
+          <button
+            style="
+              width: 140px;
+              height: 50px;
+              background-color: white;
+              border: 1px black solid;
+              cursor: pointer;
+            "
+            type="submit"
+          >
+            Thêm sản phẩm
+          </button>
+        </form>
       </div>
 
       <h1 style="margin-top: 4em">THÊM HÌNH CHO SẢN PHẨM</h1>
       <div class="container">
-        <div class="form-container">
+        <form class="form-container">
           <div class="form-group">
             <label for="id_product">ID sản phẩm</label>
-            <input type="number" id="id_product" name="id_product" />
+            <input required type="number" id="id_product" name="id_product" />
           </div>
 
           <div class="form-group">
             <label for="color_label">Nhãn màu ("00 WHITE", "19 GRAY")</label>
-            <input type="text" id="color_label" name="color_label" />
+            <input required type="text" id="color_label" name="color_label" />
           </div>
 
           <div class="form-group">
             <label for="color_source"
               >Source màu (cùng số lượng với nhãn màu)</label
             >
-            <textarea type="text" id="color_source" name="color_source">
+            <textarea
+              required
+              type="text"
+              id="color_source"
+              name="color_source"
+            >
             </textarea>
           </div>
 
           <div class="form-group">
             <label for="image_label">Nhãn hình ("image1", "image2")</label>
-            <input type="text" id="image_label" name="image_label" />
+            <input required type="text" id="image_label" name="image_label" />
           </div>
 
           <div class="form-group">
             <label for="image_source"
               >Source hình (cùng số lượng với nhãn hình)</label
             >
-            <textarea type="text" id="image_source" name="image_source">
+            <textarea
+              required
+              type="text"
+              id="image_source"
+              name="image_source"
+            >
             </textarea>
           </div>
 
           <div class="form-group">
-            <input type="submit" value="Thêm hình" />
+            <label for="image_label">Nhãn style ("style1", "style2")</label>
+            <input required type="text" id="image_label" name="image_label" />
           </div>
-        </div>
+
+          <div class="form-group">
+            <label for="image_source"
+              >Source style (cùng số lượng với nhãn style)</label
+            >
+            <textarea
+              required
+              type="text"
+              id="image_source"
+              name="image_source"
+            >
+            </textarea>
+          </div>
+
+          <button
+            style="
+              width: 100px;
+              height: 50px;
+              background-color: white;
+              border: 1px black solid;
+              cursor: pointer;
+            "
+            type="submit"
+          >
+            Thêm hình
+          </button>
+        </form>
       </div>
     </div>
   </body>
