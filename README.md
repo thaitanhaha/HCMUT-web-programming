@@ -1,4 +1,13 @@
-## How to run
- - Import `btl.sql` to XAMPP
- - Go to ` C:\huyFolder\xampp\htdocs` -> Create folder `btl` -> Clone this project
- - Then go to `localhost/btl/web-programming` to start coding
+# UNISHARK
+## Requirement
+[XAMPP](https://www.apachefriends.org/) Version: 8.2.12 or later 
+## Prestige
+- Change `DocumentRoot` to
+    ``` cmd
+    directory/to/this/repo/src/
+    ```
+- Start Apache and MySQL service from XAMPP
+- Open PHPAdmin of XAMPP, create a new database name `btl`
+- Click on import tab and import this database file: [btl.sql](./btl.sql)
+## Getting started
+- Visit the web at [localhost](http://localhost/)
