@@ -17,15 +17,18 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `btl`
---
+
+-- Database  : `btl`;
+
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `collection`
 --
+
+USE `btl`;
+
 
 CREATE TABLE `collection` (
   `id` int(11) NOT NULL,
@@ -150,3 +153,26 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `user` (
+  `id` INT NOT NULL AUTO_INCREMENT , 
+  `usrname` VARCHAR(255) NOT NULL , 
+  `passwd` VARCHAR(255) NOT NULL , 
+  `date_joined` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `cart` (
+  `id` INT NOT NULL AUTO_INCREMENT , 
+  `userid` INT NOT NULL , 
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`userid`) REFERENCES `user`(`id`)
+);
+
+CREATE TABLE `cart_item` ( 
+  `cartid` INT NOT NULL , 
+  `productid` INT NOT NULL , 
+  `quantity` INT NOT NULL , 
+  FOREIGN KEY (`cartid`) REFERENCES `cart`(`id`),
+  FOREIGN KEY (`productid`) REFERENCES `product`(`id`),
+  PRIMARY KEY (`cartid`, `productid`)
+);
