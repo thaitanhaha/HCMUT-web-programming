@@ -105,7 +105,26 @@
               style="border-radius: 8px; padding: 10px; font-weight: 600"
             />
           </div>
-
+          <div style="display: flex; flex-direction: column; margin-top: 24px">
+            <label style="font-weight: 700" for="email"
+              > Email</label
+            >
+            <input
+              type="mail"
+              id="email"
+              name="email"
+              placeholder="Nhập email của bạn..."
+              style="border-radius: 8px; padding: 10px; font-weight: 600"
+            />
+          </div>
+          <div style="display: flex; flex-direction: column; margin-top: 24px">
+          <label style="font-weight: 700" for="gender"> Gender:</label>
+              <select name="gender" id="gender" style="border-radius: 8px; padding: 10px; font-weight: 600">
+                  <option selected value="M"> Nam </option>
+                  <option value="F"> Nữ </option>
+                  <option value="U"> Không đề cập </option>
+              </select>
+          </div>
           <button type="submit" style="width: 31.5vw; margin-top: 24px" onclick="validate()">
             Đăng ký
           </button>
@@ -179,8 +198,9 @@
           successModal.style.display = "block";
         })
         .catch(error => {
-          modalParagraph.textContent = 'This username is already taken';
-          failModal.style.display = "block";
+          // modalParagraph.textContent = error;
+          // failModal.style.display = "block";
+          console.log(error)
         });
       }
     }
