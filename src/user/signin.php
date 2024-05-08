@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,10 +38,12 @@
           height: 100vh;
         "
       >
+      <a href='/homepage/'>
         <img
           src="../assets/shark.svg"
           style="width: 40vw; height: 40vh; margin-top: -20px"
         />
+      </a>
       </div>
       <div
         style="
@@ -109,11 +115,13 @@
         modal.style.display = "none";
       }
     }
-    function validate() {
+    async function validate() {
       event.preventDefault(); 
       const signinForm = document.getElementById('signinForm');
       const username = signinForm.username.value;
       const password = signinForm.password.value;
+      const failModal = document.getElementById('fail-modal');
+      const modalParagraph = document.getElementById('modal-paragraph');
       if (username.length < 2 || username.length > 30) {
         modalParagraph.textContent = "Username have to have length between 2 and 30 characters";
         failModal.style.display = "block";
@@ -124,18 +132,13 @@
       }
       else {
         var formData = new FormData(signinForm);
-        fetch('/user/auth.php', {
+        await fetch('/user/auth.php', {
           method: 'POST',
           body: formData
         })
         .then(response => response.json())
         .then(data => {
-          if (data.success) {
-            window.location.href = '/user/profile.php';
-          } else {
-            modalParagraph.textContent = 'Credentials are incorrect';
-            failModal.style.display = "block";
-          }
+          window.location.href =  <?php if (!isset($_SESSION['visited'])) echo '/homepage/'; else echo $_SESSION['visited']; ?>;
         })
         .catch(error => {
           modalParagraph.textContent = 'Credentials are incorrect';

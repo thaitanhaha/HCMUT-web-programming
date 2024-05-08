@@ -13,7 +13,7 @@
         <a href="/user/profile.php">
             <img src="/assets/person.svg" style="height: 2em" />
         </a>
-        <a href="cart/">
+        <a href="/cart/">
             <img src="/assets/cart.svg" style="height: 2em" />
         </a>
     </div>

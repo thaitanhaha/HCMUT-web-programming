@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Information</title>
+    <title>UniShark</title>
 
     <style>
       body {
@@ -12,9 +12,40 @@
         padding: 0;
         overflow-x: hidden;
       }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
 
-     
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
 
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -33,7 +64,7 @@
       }
 
       $idproduct = $_GET['id'];
-
+      
       $sql = "SELECT * FROM product WHERE id = $idproduct";
       $result = $conn->query($sql);
       $rowproduct = $result->fetch_assoc();
@@ -43,8 +74,12 @@
 
       $result1 = $conn->query($sql1);
       $rowImage = $result1->fetch_assoc();
-
-      $imagepanel = json_decode($rowImage['src_images'], true);
+      if ($rowImage) {
+        $imagepanel = json_decode($rowImage['src_images'], true);
+        $colorpanel = json_decode($rowImage['src_colors'], true);
+      }
+      session_start();
+      $_SESSION['visited'] = $_SERVER['REQUEST_URI'];
     ?>
 
   <body>
@@ -104,10 +139,12 @@
           <div id="imagePanel" style="display: grid; grid-template-columns: 50px 50px; grid-auto-rows: 50px; gap:16px;">
 
             <?php
-              foreach ($imagepanel as $key => $value) {
-                echo "<img src='$value' 
-                            style='width: 60px; height: 60px; border: 1px solid black'
-                            onClick='changeImage(\"$value\")'></img>";
+              if (isset($imagepanel)) {
+                foreach ($imagepanel as $key => $value) {
+                  echo "<img src='$value' 
+                              style='width: 60px; height: 60px; border: 1px solid black'
+                              onClick='changeImage(\"$value\")'></img>";
+                }
               }
             ?>
 
@@ -240,12 +277,13 @@
         <span id="colorName" style="font-weight: bold; font-size: 16px;">MÀU SẮC: 00 WHITE</span>
         <div style="display: flex; align-items: center; gap: 8px">
           <?php
-            $colorpanel = json_decode($rowImage['src_colors'], true);
-            foreach ($colorpanel as $key => $value) {
-              echo "<img src='$value' 
-                          style='width: 60px; height: 60px; border: 1px solid black'
-                          onClick='updatePrimaryImage(\"$value\" , \"$key\")'></img>";
-            }
+            if (isset($colorpanel)){
+              foreach ($colorpanel as $key => $value) {
+                echo "<img src='$value' 
+                            style='width: 60px; height: 60px; border: 1px solid black'
+                            onClick='updatePrimaryImage(\"$value\" , \"$key\")'></img>";
+              }
+          }
           ?>
          <script>
               function updatePrimaryImage(source, name) {
@@ -279,19 +317,21 @@
         </div>
 
 
+        <form method="POST" action="/cart/manage.php" id='cart'>
         <span style="font-weight: bold; font-size: 16px; margin-top: 16px;">SỐ LƯỢNG</span>
-        <select style="border: 1px black solid; width: 10em; height: 3em; padding-left: 12px;  background-color: white;">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <select id="quantity" name="quantity" style="border: 1px black solid; width: 10em; height: 3em; padding-left: 12px;  background-color: white;">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
-
-
-        <button style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
-          <span style="font-size: 20px; font-weight: 600; color: white;">THÊM VÀO GIỎ HÀNG</span>
-        </button>
+          <input hidden name="action" value="add">
+          <input hidden name="id" value="<?php echo $rowproduct['id']?>"> 
+          <button style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
+           <span style="font-size: 20px; font-weight: 600; color: white;" onclick="addingtoCart()">THÊM VÀO GIỎ HÀNG</span>
+          </button>
+        </form>
 
 
       </div>
@@ -446,90 +486,58 @@
               }
             ?>
       </div>
-
-      <!-- <a>
-      <div style="display: flex; align-items: center; gap:2.5em;">
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-
-      </div>
-      </a> -->
-
-
     </div>
   </body>
 </html>
+<div id="modal" class="modal" hidden >
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id='modal-paragraph'> </p>
+  </div>
+</div>
+<script>
+    var modal = document.getElementsByClassName('modal')[0];
+    var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    async function addingtoCart(){
+      event.preventDefault();
+      const cartForm = document.getElementById('cart');
+      const action = cartForm.action.value;
+      const id = cartForm.id.value;
+      const data = new FormData(cartForm);
+      await fetch('/cart/manage.php', {
+        redirect : 'error',
+        method: 'POST',
+        body: data
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('modal-paragraph').innerHTML = 'Thêm vào giỏ hàng thành công';
+          modal.style.display = "block";
+        } else {
+          document.getElementById('modal-paragraph').innerHTML = 'Bạn cần đăng nhập để thêm vào giỏ hàng';
+          modal.style.display = "block";
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              window.location.href = '/user/signin.php'
+            }
+          }
+        }
+        return;
+      })
+      .catch(error =>{
+        document.getElementById('modal-paragraph').innerHTML = 'Thêm vào giỏ hàng thất bại';
+        modal.style.display = "block";
+      })
+      return;
+    }
+</script>
