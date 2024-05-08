@@ -22,8 +22,7 @@ databasename: btl
 username: haha
 password: test
 ```
-- Login path for admin: (admin)[localhost/admin/signin.php]
-
+- Login path for admin: [admin](localhost/admin/login.php)
 - Credentials for admin:
 ```
 username: admin
