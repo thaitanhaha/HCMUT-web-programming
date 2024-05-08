@@ -2,7 +2,7 @@
 ## Requirement
 [XAMPP](https://www.apachefriends.org/) Version: 8.2.12 or later 
 ## Prestige
-- Change `DocumentRoot` to
+- Change `DocumentRoot` to in Apache `httpd.conf` file, can be access from `XAMPP` -> `Apache config` 
     ``` cmd
     directory/to/this/repo/src/
     ```
