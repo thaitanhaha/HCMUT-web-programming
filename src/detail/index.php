@@ -77,6 +77,7 @@
       if ($rowImage) {
         $imagepanel = json_decode($rowImage['src_images'], true);
         $colorpanel = json_decode($rowImage['src_colors'], true);
+        $imageStyle = json_decode($rowImage['src_styles'], true);
       }
       session_start();
       $_SESSION['visited'] = $_SERVER['REQUEST_URI'];
@@ -332,117 +333,21 @@
            <span style="font-size: 20px; font-weight: 600; color: white;" onclick="addingtoCart()">THÊM VÀO GIỎ HÀNG</span>
           </button>
         </form>
-
-
+      </div>
       </div>
 
       
-
-      </div>
-
-      
-      <span style="font-weight: 600; font-size: 22px; margin-top: 2em; margin-bottom: 0.5em;">Cách phối đồ chuẩn</span>
-      <div style="display: flex; align-items: center;width: 100%; height: 25em; gap:2.5em">
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-      </div>
-
       <span style="font-weight: 700; font-size: 22px; margin-top: 4em;">Gợi ý phối đồ từ StyleHint</span>
       <span style="font-weight: 500; font-size: 16px; margin-top: 4px; margin-bottom: 0.5em;">Gợi ý phối đồ từ cộng đồng quốc tế</span>
       <div style="display: flex; align-items: center; height: 25em; gap:2.5em">
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
-        <img style="height: 100%;" src="https://api.fastretailing.com/ugc/v1/uq/gl/OFFICIAL_IMAGES/24031107465_official_styling_120018812_c-600-800"/>
+        <?php
+          if (isset($imageStyle)) {
+            foreach ($imageStyle as $key => $value) {
+              echo "<img style='height: 100%; width:25%;' src='$value'></img>";
+            }
+          }
+        ?>
       </div>
-
-      <span style="display: flex; width: 100%; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; margin-top: 4em; margin-bottom: 0.5em;">
-        SẢN PHẨM ĐƯỢC QUAN TÂM
-      </span>
-      <a>
-      <div style="display: flex; align-items: center; gap:2.5em;">
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap:1em; width: 25%;">
-          <img src="https://image.UniShark.com/UQ/ST3/vn/imagesgoods/466775/item/vngoods_63_466775.jpg"></img>
-          <div style="display: flex; align-items: center; gap:6px">
-            <div style="width: 16px; height: 16px; background-color: green; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: blue; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: yellow; border: 1px solid black;"></div>
-            <div style="width: 16px; height: 16px; background-color: pink; border: 1px solid black;"></div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;">
-            <span style="color: gray; font-weight: 600;">NAM</span>
-            <span style="color: gray; font-weight: 600;">XS-XXL</span>
-          </div>
-
-          <span style="font-weight: 800; font-size: 20px;">Áo Thun Vải Slub Cotton Cổ Tròn Ngắn Tay</span>
-          <span style="font-weight: 600; font-size: 16px;">391.000 VND</span>
-
-        </div>
-
-
-      </div>
-      </a>
-
 
       <span style="display: flex; width: 100%; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; margin-top: 4em; margin-bottom: 0.5em;">
         SẢN PHẨM THƯỜNG ĐƯỢC MUA KÈM
