@@ -11,3 +11,27 @@
 - Click on import tab and import this database file: [btl.sql](./btl.sql)
 ## Getting started
 - Visit the web at [localhost](http://localhost/)
+- Credentials for database: 
+```
+username: root
+password: ""
+databasename: btl
+```
+- Credentials for test user:
+```
+username: haha
+password: test
+```
+- Login path for admin: (admin)[localhost/admin/signin.php]
+
+- Credentials for admin:
+```
+username: admin
+password: admin
+```
+## Noted:
+- Password is hashed when store in database
+
+
+
+
