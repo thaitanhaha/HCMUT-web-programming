@@ -8,7 +8,7 @@
     <div style="display: flex; gap: 2.5em; align-items: center">
         
         <a href="/news/">  
-            <img src="/assets/magnifyingglass.svg" style="height: 2.5em" />
+            <img src="/assets/news.svg" style="height: 2.5em" />
         </a>
         <a href="/user/profile.php">
             <img src="/assets/person.svg" style="height: 2em" />

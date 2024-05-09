@@ -23,10 +23,6 @@
         echo json_encode(array('error' => 'Connection failed: ' . $conn->connect_error));
         die('Connection failed: ' . $conn->connect_error);
     }
-    $sql = "
-        SELECT * FROM news ORDER BY date DESC
-    ";
-    $result = $conn->query($sql);
 ?>
 <body>
     <h1 class="mt-3">Tin tức</h1>
@@ -44,7 +40,7 @@
             }
 
             $sql = "
-                SELECT * FROM news
+                SELECT * FROM news ORDER BY date DESC
             ";
             $result = $conn->query($sql);
 

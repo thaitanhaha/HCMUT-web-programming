@@ -16,7 +16,7 @@
     <h1 class="mt-3">Tin tức</h1>
     <div class="row d-flex justify-content-center">
         <button type="button" class="btn btn-primary" style="width: 100px;" onclick="openAddModal()">
-            Add
+            Thêm
         </button>
     </div>
     <div class="row d-flex justify-content-center">
@@ -66,26 +66,26 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit News</h5>
+                    <h5 class="modal-title" id="editModalLabel">Chỉnh sửa tin tức</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <input type="hidden" id="modalId" value="">
                     <div class="mb-3">
-                        <label for="modalTitleInput" class="form-label">Title</label>
+                        <label for="modalTitleInput" class="form-label">Tiêu đề</label>
                         <textarea class="form-control" id="modalTitle" rows="1"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Detail</label>
+                        <label for="modalDetailInput" class="form-label">Chi tiết</label>
                         <textarea class="form-control" id="modalDetail" rows="3"></textarea>
                     </div>
                 </form>
             </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
-                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="deleteBtn">Xóa</button>
+                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Lưu</button>
                 </div>
             </div>
         </div>
@@ -95,29 +95,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabel">Add News</h5>
+                    <h5 class="modal-title" id="addModalLabel">Thêm tin tức</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form>
                     <input type="hidden" id="modalId" value="">
                     <div class="mb-3">
-                        <label for="addModalTitleInput" class="form-label">Title</label>
+                        <label for="addModalTitleInput" class="form-label">Tiêu đề</label>
                         <textarea class="form-control" id="addModalTitle" rows="1"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="addModalDetailInput" class="form-label">Detail</label>
+                        <label for="addModalDetailInput" class="form-label">Chi tiết</label>
                         <textarea class="form-control" id="addModalDetail" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="addModalDetailInput" class="form-label">Link to the image</label>
+                        <label for="addModalDetailInput" class="form-label">Đường dẫn tới hình ảnh</label>
                         <textarea class="form-control" id="addModalImage" rows="1"></textarea>
                     </div>
                 </form>
             </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addBtn">Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="addBtn">Thêm</button>
                 </div>
             </div>
         </div>
