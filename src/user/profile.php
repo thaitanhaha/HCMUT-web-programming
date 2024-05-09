@@ -6,18 +6,24 @@
 ?>
 
 <!DOCTYPE html>
-<style>
-body {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-}
-</style>
-
 <html lang="en">
   <header>
     <?php include "../utils/header.php" ?>
   </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+  </head>
+
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+  }
+</style>
 
   <body>
     <div style="display: flex; flex-direction: column; padding: 2em 10em 0px 10em">
@@ -117,6 +123,7 @@ body {
         </div>
       </div>
     </div>
+  </body>
   <script> 
     function signout(){
       fetch('/user/auth.php', {
@@ -134,5 +141,4 @@ body {
     }
 
   </script>
-  </body>
 </html>

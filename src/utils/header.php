@@ -1,5 +1,5 @@
 <div class='nav_style'>
-    <div style="display: flex; gap: 2.5em; align-items: center">
+    <div style="display: flex; gap: 2.5em; align-items: center;">
     <a href="/homepage/">
         <img src="/assets/shark.svg" style="width: 3em; height: 3em; margin-right: 40px"/>
     </a>
@@ -7,7 +7,7 @@
 </div>
     <div style="display: flex; gap: 2.5em; align-items: center">
         
-        <a href="/homepage/">  
+        <a href="/news/">  
             <img src="/assets/magnifyingglass.svg" style="height: 2.5em" />
         </a>
         <a href="/user/profile.php">

@@ -170,6 +170,27 @@ INSERT INTO `size` (`id`, `id_product`, `size_xs`, `size_s`, `size_m`, `size_l`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `size`
+--
+
+CREATE TABLE `news` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `detail` TEXT,
+  `date` DATE NOT NULL,
+  `primary_image` TEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insert mock data into `news`
+INSERT INTO `news` (`title`, `detail`, `date`, `primary_image`) VALUES
+('Giảm giá Hè', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2024-05-09', 'https://www.antlr.org/images/sample3.png'),
+('Tạm ngưng hoạt động', 'Praesent vel tortor vitae risus pulvinar eleifend. Praesent vel tortor vitae risus pulvinar eleifend. Praesent vel tortor vitae risus pulvinar eleifend.', '2024-03-03', 'https://www.antlr.org/images/sample3.png'),
+('Giảm giá Tết', 'Fusce sollicitudin, elit sed ornare feugiat, mauris turpis. Fusce sollicitudin, elit sed ornare feugiat, mauris turpis. Fusce sollicitudin, elit sed ornare feugiat, mauris turpis.', '2024-01-01', 'https://www.antlr.org/images/sample3.png');
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
