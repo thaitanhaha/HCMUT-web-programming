@@ -32,7 +32,7 @@
       "
     >
       <div style="display: flex; gap: 2.5em; align-items: center">
-        <a href="http://localhost/btl/web-programming/homepage/">
+        <a href="/homepage/">
           <img
             src="../assets/shark.svg"
             style="width: 3em; height: 3em; margin-right: 40px"
@@ -60,6 +60,27 @@
       overflow-x: hidden;
     }
   </style>
+
+  <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "btl";
+
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sqlProcduct = "SELECT * FROM product";
+      $resultProduct = $conn->query($sqlProcduct);
+
+      $sqlUser = "SELECT * FROM user";
+      $resultUser = $conn->query($sqlUser);
+      
+
+  ?>
 
   <body>
     <div
@@ -91,13 +112,17 @@
           <div style="display: flex; gap: 10em">
             <div style="display: flex; flex-direction: column">
               <h2>TỔNG SẢN PHẨM</h2>
-              <span style="margin-top: -12px">200 sản phẩm</span>
+              <?php
+                  echo "<span style='margin-top: -12px'>". $resultProduct->num_rows . " sản phẩm</span>"
+              ?>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 24px">
               <div style="display: flex; flex-direction: column">
                 <h2>TỔNG THÀNH VIÊN</h2>
-                <span style="margin-top: -12px">50 thành viên</span>
+                <?php
+                  echo "<span style='margin-top: -12px'>". $resultUser->num_rows . " thành viên</span>"
+                  ?>
               </div>
 
               <div style="display: flex; flex-direction: column">
