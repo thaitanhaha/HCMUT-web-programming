@@ -106,17 +106,20 @@
           margin-bottom: 40px;
         "
       >
-        <span style="color: gray; text-decoration: underline; font-size: 14px"
-          >TRANG CHỦ UNISHARK</span
-        >
+        <a href="/homepage/">
+          <span style="color: gray;  font-size: 14px"
+              >TRANG CHỦ UNISHARK</span
+            >
+        </a>
+        
 
         <span style="color: gray; text-decoration: underline; font-size: 14px"
           >/</span
         >
 
-        <span style="color: gray; text-decoration: underline; font-size: 14px"
-          >KẾT QUẢ TÌM KIẾM CHO ÁO THUN CỔ TRÒN
-        </span>
+        <?php 
+          echo "<span style='color: gray; text-decoration: underline; font-size: 14px'>$rowproduct[name]</span>";
+        ?>
       </div>
 
       <div
@@ -329,8 +332,8 @@
         </select>
           <input hidden name="action" value="add">
           <input hidden name="id" value="<?php echo $rowproduct['id']?>"> 
-          <button style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
-           <span style="font-size: 20px; font-weight: 600; color: white;" onclick="addingtoCart()">THÊM VÀO GIỎ HÀNG</span>
+          <button onclick="addingtoCart()" style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
+           <span style="font-size: 20px; font-weight: 600; color: white;" >THÊM VÀO GIỎ HÀNG</span>
           </button>
         </form>
       </div>
@@ -402,6 +405,7 @@
 </div>
 <script>
     var modal = document.getElementsByClassName('modal')[0];
+
     var span = document.getElementsByClassName("close")[0];
         span.onclick = function() {
       modal.style.display = "none";
@@ -412,6 +416,9 @@
         modal.style.display = "none";
       }
     }
+
+
+
     async function addingtoCart(){
       event.preventDefault();
       const cartForm = document.getElementById('cart');
@@ -445,4 +452,5 @@
       })
       return;
     }
+
 </script>

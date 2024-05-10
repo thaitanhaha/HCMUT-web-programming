@@ -36,7 +36,7 @@
       >
         <img
           src="../assets/shark.svg"
-          style="width: 40vw; height: 40vh; margin-top: -20px"
+          style="margin-top: -20px"
         />
       </div>
       <div
