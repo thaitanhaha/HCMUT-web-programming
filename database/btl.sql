@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 06:39 PM
+-- Generation Time: May 08, 2024 at 07:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,11 +57,10 @@ CREATE TABLE `cart_item` (
 --
 
 INSERT INTO `cart_item` (`cartid`, `productid`, `quantity`) VALUES
-(1, 1, 5),
-(1, 2, 22),
+(1, 1, 3),
+(1, 2, 3),
 (1, 5, 3),
-(1, 6, 3),
-(1, 3, 1);
+(1, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -89,19 +88,6 @@ INSERT INTO `collection` (`id`, `name`, `product_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
---
-
-CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `image`
 --
 
@@ -109,8 +95,7 @@ CREATE TABLE `image` (
   `id` int(11) NOT NULL,
   `src_images` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`src_images`)),
   `src_colors` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`src_colors`)),
-  `id_product` int(11) NOT NULL,
-  `src_styles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`src_styles`))
+  `id_product` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -201,6 +186,27 @@ INSERT INTO `size` (`id`, `id_product`, `size_xs`, `size_s`, `size_m`, `size_l`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `size`
+--
+
+CREATE TABLE `news` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `detail` TEXT,
+  `date` DATE NOT NULL,
+  `primary_image` TEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insert mock data into `news`
+INSERT INTO `news` (`title`, `detail`, `date`, `primary_image`) VALUES
+('Giảm giá Hè', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '2024-05-09', 'https://www.antlr.org/images/sample3.png'),
+('Tạm ngưng hoạt động', 'Praesent vel tortor vitae risus pulvinar eleifend. Praesent vel tortor vitae risus pulvinar eleifend. Praesent vel tortor vitae risus pulvinar eleifend.', '2024-03-03', 'https://www.antlr.org/images/sample3.png'),
+('Giảm giá Tết', 'Fusce sollicitudin, elit sed ornare feugiat, mauris turpis. Fusce sollicitudin, elit sed ornare feugiat, mauris turpis. Fusce sollicitudin, elit sed ornare feugiat, mauris turpis.', '2024-01-01', 'https://www.antlr.org/images/sample3.png');
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -219,13 +225,27 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `usrname`, `passwd`, `fullname`, `email`, `gender`, `date_joined`) VALUES
-(1, 'test', '$2y$10$qiHcOR.B886I6lBDTfSrd.mRW.DsfF7f3072Bks2duWiOcbA7lToG', 'PHP user', 'test@gmail.com', 'F', '2024-05-07 03:10:17'),
-(2, 'jhin', '$2y$10$cP4zv3DuKbzeKUZ3u9TXpe3XDLA2gO/KykXkmEwcxzEEUKQnBTzKu', 'jhin', 'jhin@riot.com', 'M', '2024-05-07 03:10:39'),
-(3, 'haha', '$2y$10$LTxXssdv5Vt38LB3Momq8OGdzok4W.nacihzBUV62j4LQa9/X94Xy', 'haha21', 'haha@gmail.com', 'M', '2024-05-07 03:16:13');
+(1, 'test', '$2y$10$qiHcOR.B886I6lBDTfSrd.mRW.DsfF7f3072Bks2duWiOcbA7lToG', 'PHP user', 'test@gmail.com', 'F', '2024-05-07 10:10:17'),
+(2, 'jhin', '$2y$10$cP4zv3DuKbzeKUZ3u9TXpe3XDLA2gO/KykXkmEwcxzEEUKQnBTzKu', 'jhin', 'jhin@riot.com', 'M', '2024-05-07 10:10:39'),
+(3, 'haha', '$2y$10$LTxXssdv5Vt38LB3Momq8OGdzok4W.nacihzBUV62j4LQa9/X94Xy', 'haha', 'haha@gmail.com', 'M', '2024-05-07 10:16:13');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`userid`);
+
+--
+-- Indexes for table `cart_item`
+--
+ALTER TABLE `cart_item`
+  ADD PRIMARY KEY (`cartid`,`productid`),
+  ADD KEY `productid` (`productid`);
 
 --
 -- Indexes for table `product`
@@ -234,14 +254,49 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `cart_item`
+--
+ALTER TABLE `cart_item`
+  ADD CONSTRAINT `cart_item_ibfk_1` FOREIGN KEY (`cartid`) REFERENCES `cart` (`id`),
+  ADD CONSTRAINT `cart_item_ibfk_2` FOREIGN KEY (`productid`) REFERENCES `product` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
