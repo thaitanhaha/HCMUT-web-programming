@@ -127,7 +127,7 @@
           action.className = 'd-flex grid justify-content-around';
 
           let minus = document.createElement('button');
-          minus.className = 'btn btn-warning col-3';
+          minus.className = 'btn btn-warning';
           minus.onclick = () => confirmDelete(item.id);
           minus.textContent = 'Xóa';
 

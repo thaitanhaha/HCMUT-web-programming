@@ -59,7 +59,7 @@
     <div style="display: flex; flex-direction: column; height: 100vh; padding-left: 10em; padding-top: 1.5em; padding-right: 10em;">
       <div style="display: flex; flex-direction: column;">
         <h4>TÌM KIẾM KẾT QUẢ CHO</h4>
-        <span style="font-size: 24px">Áo Thun Cổ Tròn</span>
+        <span style="font-size: 24px"><?php echo $collection_name;?></span>
       </div>
 
       <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 32px; border-top: gray 1px solid; padding-top: 20px; padding-right: 40px;">

@@ -7,6 +7,9 @@
 </div>
     <div style="display: flex; gap: 2.5em; align-items: center">
         
+        <a href="/list/collections.php">  
+            <img src="/assets/magnifyingglass.svg" style="height: 2.5em" />
+        </a>
         <a href="/news/">  
             <img src="/assets/news.svg" style="height: 2.5em" />
         </a>

@@ -37,6 +37,9 @@
     "
   >
     <h1>Sản phẩm</h1>
+    <button type="button" class="btn btn-primary mb-3" style="width: 100px;" onclick="openAddModal()">
+        Thêm
+    </button>
     <table class="table table-bordered align-middle">
       <thead style="text-align: center;">
         <tr>
@@ -81,34 +84,34 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form>
-                    <input type="hidden" id="modalId" value="">
-                    <div class="mb-3">
-                        <label for="modalTitleInput" class="form-label">Tên</label>
-                        <textarea class="form-control" id="modalName" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Giá cả</label>
-                        <textarea class="form-control" id="modalPrice" rows="1"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Giảm giá</label>
-                        <textarea class="form-control" id="modalDiscount" rows="1"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Mô tả giảm giá</label>
-                        <textarea class="form-control" id="modalDiscountDes" rows="1"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Đường dẫn tới hình ảnh</label>
-                        <textarea class="form-control" id="modalImage" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalDetailInput" class="form-label">Các sản phẩm tương tự</label>
-                        <textarea class="form-control" id="modalSimilar" rows="3"></textarea>
-                    </div>
-                </form>
-            </div>
+                  <form>
+                      <input type="hidden" id="modalId" value="">
+                      <div class="mb-3">
+                          <label for="modalTitleInput" class="form-label">Tên</label>
+                          <textarea class="form-control" id="modalName" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Giá cả</label>
+                          <textarea class="form-control" id="modalPrice" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Giảm giá</label>
+                          <textarea class="form-control" id="modalDiscount" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Mô tả giảm giá</label>
+                          <textarea class="form-control" id="modalDiscountDes" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Đường dẫn tới hình ảnh</label>
+                          <textarea class="form-control" id="modalImage" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Các sản phẩm tương tự</label>
+                          <textarea class="form-control" id="modalSimilar" rows="3"></textarea>
+                      </div>
+                  </form>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                     <button type="button" class="btn btn-primary" id="saveChangesBtn">Lưu</button>
@@ -117,10 +120,58 @@
         </div>
     </div>
   
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Thêm sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                      <input type="hidden" id="addModalId" value="">
+                      <div class="mb-3">
+                          <label for="modalTitleInput" class="form-label">Tên</label>
+                          <textarea class="form-control" id="addModalName" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Giá cả</label>
+                          <textarea class="form-control" id="addModalPrice" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Giảm giá</label>
+                          <textarea class="form-control" id="addModalDiscount" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Mô tả giảm giá</label>
+                          <textarea class="form-control" id="addModalDiscountDes" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Đường dẫn tới hình ảnh</label>
+                          <textarea class="form-control" id="addModalImage" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modalDetailInput" class="form-label">Các sản phẩm tương tự</label>
+                          <textarea class="form-control" id="addModalSimilar" rows="3">{ "ids": [  ] }</textarea>
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="addBtn">Thêm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
   <script>
+    function openAddModal() {
+            $('#addModal').modal('show');
+        }
+
     function confirmDelete(id) {
       $('#deleteModal').modal('show');
       $('#confirmDelete').on('click', function() {
@@ -151,6 +202,32 @@
 
         const formData = new FormData();
         formData.append('action', 'update');
+        formData.append('productId', productId);
+        formData.append('productName', productName);
+        formData.append('productPrice', productPrice);
+        formData.append('productDiscount', productDiscount);
+        formData.append('productDiscountDes', productDiscountDes);
+        formData.append('productImage', productImage);
+        formData.append('productSimilar', productSimilar);
+        fetch('/management/update_product.php',{
+            method : 'POST',
+            body : formData
+        })
+        $('#editModal').modal('hide');
+        window.location.reload();
+    });
+
+    document.getElementById('addBtn').addEventListener('click', function() {
+        var productId = document.getElementById('addModalId').value;
+        var productName = document.getElementById('addModalName').value;
+        var productPrice = document.getElementById('addModalPrice').value;
+        var productDiscount = document.getElementById('addModalDiscount').value;
+        var productDiscountDes = document.getElementById('addModalDiscountDes').value;
+        var productImage = document.getElementById('addModalImage').value;
+        var productSimilar = document.getElementById('addModalSimilar').value;
+
+        const formData = new FormData();
+        formData.append('action', 'add');
         formData.append('productId', productId);
         formData.append('productName', productName);
         formData.append('productPrice', productPrice);

@@ -48,6 +48,8 @@
             <a href="/management/news.php" class="card-link">Tin tức</a>
             <br>
             <a href="/management/products.php" class="card-link">Sản phẩm</a>
+            <br>
+            <a href="/management/collections.php" class="card-link">Bộ sưu tập</a>
           </div>
         </div>
       </div>

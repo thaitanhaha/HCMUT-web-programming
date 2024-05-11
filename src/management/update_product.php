@@ -23,8 +23,11 @@ function manageProduct(){
         if ($_POST['action'] === 'remove'){
             removeProduct($_POST['id'], $conn);
         }
-        if ($_POST['action'] === 'update'){
+        else if ($_POST['action'] === 'update'){
             update_product($_POST['productId'], $_POST['productName'], $_POST['productPrice'], $_POST['productDiscount'], $_POST['productDiscountDes'], $_POST['productImage'], $_POST['productSimilar'], $conn);
+        }
+        else if ($_POST['action'] === 'add'){
+            add_product($_POST['productId'], $_POST['productName'], $_POST['productPrice'], $_POST['productDiscount'], $_POST['productDiscountDes'], $_POST['productImage'], $_POST['productSimilar'], $conn);
         }
         else {
             echo json_encode(array('error' => 'Invalid action'));
@@ -46,6 +49,25 @@ function update_product($id, $name, $price, $discount, $discountdes, $image, $si
     try {
         $sql = "
             UPDATE product SET name='$name', price=$price, percentdiscount=$discount, descriptiondiscount='$discountdes', primary_image='$image', similar_ids='$similar' WHERE id=$id
+        "; 
+        if ($conn->query($sql) === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+    } catch (Exception $e){
+        echo json_encode(array('error' => 'error'));
+        return;
+    }
+    return;
+}
+
+
+function add_product($id, $name, $price, $discount, $discountdes, $image, $similar, $conn){
+    try {
+        $sql = "
+        INSERT INTO product (name, price, percentdiscount, descriptiondiscount, primary_image, similar_ids)
+        VALUES ('$name', $price, $discount, '$discountdes', '$image', '$similar');
         "; 
         if ($conn->query($sql) === TRUE) {
             echo "Record updated successfully";

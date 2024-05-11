@@ -69,8 +69,9 @@ INSERT INTO `cart_item` (`cartid`, `productid`, `quantity`) VALUES
 --
 
 CREATE TABLE `collection` (
-  `id` int(11) NOT NULL,
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY,
   `name` text NOT NULL,
+  `primary_image` text NOT NULL,
   `product_id` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`product_id`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -78,12 +79,12 @@ CREATE TABLE `collection` (
 -- Dumping data for table `collection`
 --
 
-INSERT INTO `collection` (`id`, `name`, `product_id`) VALUES
-(1, 'summer_short', '{\r\n  \"ids\": [\r\n    1,2,4,8,6,10,8,12,22,14\r\n  ]\r\n}'),
-(2, 'summer_pant', '{\r\n  \"ids\": [\r\n    1,2,4,9,21,11,22,13,14,5,6,7,8,10\r\n  ]\r\n}'),
-(3, 'summer_skirt', '{\r\n  \"ids\": [\r\n    1,2,3,4,10,5,12,6,14\r\n  ]\r\n}'),
-(4, 'summer_marimekko', '{\r\n  \"ids\": [\r\n    22,21,14,6,10,8,11\r\n  ]\r\n}'),
-(5, 'summer_minecraft', '{\r\n  \"ids\": [\r\n    5,2,4,10,11,12,13,14,21,21\r\n  ]\r\n}');
+INSERT INTO `collection` (`id`, `name`, `primary_image`, `product_id`) VALUES
+(1, 'summer_short', 'https://im.uniqlo.com/global-cms/spa/resb20b8b895269fdc307bf363393732bccfr.jpg', '{\r\n  \"ids\": [\r\n    1,2,4,8,6,10,8,12,22,14\r\n  ]\r\n}'),
+(2, 'summer_pant', 'https://im.uniqlo.com/global-cms/spa/res65a2144c4e82b9120cf5b9f9d57ea5b0fr.jpg', '{\r\n  \"ids\": [\r\n    1,2,4,9,21,11,22,13,14,5,6,7,8,10\r\n  ]\r\n}'),
+(3, 'summer_skirt', 'https://im.uniqlo.com/global-cms/spa/res67c00825737661258d7691e2ab4ea1a2fr.jpg', '{\r\n  \"ids\": [\r\n    1,2,3,4,10,5,12,6,14\r\n  ]\r\n}'),
+(4, 'summer_marimekko', 'https://im.uniqlo.com/global-cms/spa/res448c0c782bc1aae07ddc2dffd47fb4bcfr.jpg', '{\r\n  \"ids\": [\r\n    22,21,14,6,10,8,11\r\n  ]\r\n}'),
+(5, 'summer_minecraft', 'https://im.uniqlo.com/global-cms/spa/res1a8dcafda57c23c799ac9c38ebd71f91fr.jpg', '{\r\n  \"ids\": [\r\n    5,2,4,10,11,12,13,14,21,21\r\n  ]\r\n}');
 
 -- --------------------------------------------------------
 
