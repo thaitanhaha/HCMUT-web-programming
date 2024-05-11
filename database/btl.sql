@@ -226,9 +226,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `usrname`, `passwd`, `fullname`, `email`, `gender`, `date_joined`) VALUES
-(1, 'test', '$2y$10$qiHcOR.B886I6lBDTfSrd.mRW.DsfF7f3072Bks2duWiOcbA7lToG', 'PHP user', 'test@gmail.com', 'F', '2024-05-07 10:10:17'),
-(2, 'jhin', '$2y$10$cP4zv3DuKbzeKUZ3u9TXpe3XDLA2gO/KykXkmEwcxzEEUKQnBTzKu', 'jhin', 'jhin@riot.com', 'M', '2024-05-07 10:10:39'),
-(3, 'haha', '$2y$10$LTxXssdv5Vt38LB3Momq8OGdzok4W.nacihzBUV62j4LQa9/X94Xy', 'haha', 'haha@gmail.com', 'M', '2024-05-07 10:16:13');
+(1, 'thaitanhaha', '$2y$10$qiHcOR.B886I6lBDTfSrd.mRW.DsfF7f3072Bks2duWiOcbA7lToG', 'Nguyễn Thái Tân', 'thaitan@gmail.com', 'F', '2024-05-07 10:10:17'),
+(2, 'jhin', '$2y$10$cP4zv3DuKbzeKUZ3u9TXpe3XDLA2gO/KykXkmEwcxzEEUKQnBTzKu', 'Nguyễn Vinh', 'jhin@riot.com', 'M', '2024-05-07 10:10:39'),
+(3, 'haha', '$2y$10$LTxXssdv5Vt38LB3Momq8OGdzok4W.nacihzBUV62j4LQa9/X94Xy', 'Nguyễn Nhật Đăng', 'nhatdang@gmail.com', 'M', '2024-05-07 10:16:13');
 
 --
 -- Indexes for dumped tables

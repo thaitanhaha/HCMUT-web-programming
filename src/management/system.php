@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <header>
-      <?php include "../utils/admin_header.php" ?>
-  </header>
-
-  <style>
-    body {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-      padding: 0;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-  </style>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <?php include "../utils/admin_header.php" ?>
   <?php
       $servername = "localhost";
       $username = "root";
@@ -41,62 +33,48 @@
       {
           header('Location: /admin/signin.php');
       }
-
-      
   ?>
 
-  <body>
-    <div
-      style="display: flex; flex-direction: column; padding: 2em 10em 0px 10em"
-    >
-      <h1>HỆ THỐNG</h1>
+  <div class="container mt-5">
+    <h1 class="mb-4">HỆ THỐNG</h1>
 
-      <div style="display: flex; gap: 10em; margin-top: 4em">
-        <div style="display: flex; flex-direction: column; width: 200px; gap: 12px">
-          <h4>Quản lý hệ thống</h4>
-          <a href="/management/news.php" style="margin-left: 1em">Tin tức</a>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Quản lý hệ thống</h4>
+            <a href="/management/users.php" class="card-link">Thành viên</a>
+            <br>
+            <a href="/management/news.php" class="card-link">Tin tức</a>
+            <br>
+            <a href="/management/products.php" class="card-link">Sản phẩm</a>
+          </div>
         </div>
+      </div>
 
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            border: 1px #e0e0e0 solid;
-            width: 100%;
-            padding: 12px 32px 32px 32px;
-          "
-        >
-          <h1>Hệ thống</h1>
-
-          <div style="display: flex; gap: 10em">
-            <div style="display: flex; flex-direction: column">
-              <h2>Tổng sản phẩm</h2>
-              <?php
-                  echo "<span style='margin-top: -12px'>". $resultProduct->num_rows . " sản phẩm</span>"
-              ?>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 24px">
-              <div style="display: flex; flex-direction: column">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Hệ thống</h1>
+            <div class="row">
+              <div class="col">
+                <h2>Tổng sản phẩm</h2>
+                <span><?php echo $resultProduct->num_rows; ?> sản phẩm</span>
+              </div>
+              <div class="col">
                 <h2>Tổng thành viên</h2>
-                <?php
-                  echo "<span style='margin-top: -12px'>". $resultUser->num_rows . " thành viên</span>"
-                  ?>
+                <span><?php echo $resultUser->num_rows; ?> thành viên</span>
               </div>
             </div>
+            <hr>
           </div>
-
-          <div
-            style="
-              width: 100%;
-              height: 1px;
-              background-color: #e0e0e0;
-              margin-top: 2em;
-              margin-bottom: 2em;
-            "
-          ></div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

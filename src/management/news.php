@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="news-style.css">
 </head>
+
 <body>
     <h1 class="mt-3">Tin tức</h1>
     <div class="row d-flex justify-content-center">
@@ -30,6 +31,12 @@
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
+            }
+
+            session_start();
+            if (!isset($_SESSION['admin_session']))
+            {
+                header('Location: /admin/signin.php');
             }
 
             $sql = "SELECT * FROM news ORDER BY date DESC";
