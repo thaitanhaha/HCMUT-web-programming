@@ -116,9 +116,9 @@
     </div>
 
     <div class="p-0 mt-3" style="justify-content: space-between; border-top: 1px solid black;">
-      <span class="p-2" style="font-size: 16px; color: gray" autocapitalize="true">
+      <p class="p-2 mt-1" style="font-size: 16px; color: gray" autocapitalize="true">
         Bản quyền thuộc về UNISHARK. 
-      </span>
+      </p>
     </div>
 
   </body>

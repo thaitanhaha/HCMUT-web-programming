@@ -248,7 +248,7 @@
         SẢN PHẨM THƯỜNG ĐƯỢC MUA KÈM
       </p>
 
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 100px;">
         <?php
           $similar_ids = json_decode($rowproduct['similar_ids'], true);
           $ids = $similar_ids['ids'];
@@ -257,26 +257,29 @@
 
               $sql = "SELECT * FROM product WHERE id = $similar_id";
               $result = $conn->query($sql);
+              if ($result->num_rows == 0) {
+                  continue;
+              }
               $rowproduct = $result->fetch_assoc();
 
               $price = $rowproduct['price'];
               $formatted_price = number_format($price, 0, '.', '.');
 
               echo "
-                <a style='text-decoration: none' href='http://localhost/detail/?id=$rowproduct[id]'>
-                    <div style='display: flex; flex-direction: column; gap:1em; align-items: center;'>
-                        <div style='display: flex; flex-direction: column; align-items: center; width: 100%; height:20em;'>
-                            <img style='width:90%; height:90%;' src='$rowproduct[primary_image]'></img>
-                        </div>
-                        <div style='display: flex; align-items: center; gap:6px'>
-                            <div style='width: 16px; height: 16px; background-color: green; border: 1px solid black;'></div>
-                            <div style='width: 16px; height: 16px; background-color: blue; border: 1px solid black;'></div>
-                            <div style='width: 16px; height: 16px; background-color: yellow; border: 1px solid black;'></div>
-                            <div style='width: 16px; height: 16px; background-color: pink; border: 1px solid black;'></div>
-                        </div>
-                        <span style='font-size: 20px; color:black; text-align: center;'>$rowproduct[name]</span>
-                        <span style='font-size: 16px; color:gray;'>$formatted_price VND</span>
-                    </div>
+                <a style='text-decoration: none; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;' href='http://localhost/detail/?id=$rowproduct[id]'>
+                  <div style='display: flex; flex-direction: column; gap:1em; align-items: center; width: 100%; height:20em;'>
+                      <div style='width: 100%; height: 70%; display: flex; justify-content: center; align-items: center;'>
+                          <img style='max-width: 100%; max-height: 100%;' src='$rowproduct[primary_image]'></img>
+                      </div>
+                      <div style='display: flex; align-items: center; gap:6px; width: 100%; justify-content: center;'>
+                        <div style='width: 16px; height: 16px; background-color: green; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: blue; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: yellow; border: 1px solid black;'></div>
+                        <div style='width: 16px; height: 16px; background-color: pink; border: 1px solid black;'></div>
+                      </div>
+                      <span style='font-size: 20px; color:black; text-align: center;'>$rowproduct[name]</span>
+                      <span style='font-size: 16px; color:gray;'>$formatted_price VND</span>
+                  </div>
                 </a>
             ";
           }
