@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../user/styles.css" />
   </head>
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-  <body>
+<body>
   <div id="fail-modal" class="modal" hidden >
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -22,131 +22,89 @@
       <button id="modal-button" > Login </button>
     </div>
   </div>
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        overflow-y: hidden;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          background-color: #f6f6f6;
-          width: 50vw;
-          height: 100vh;
-        "
-      >
-        <img
-          src="../assets/shark.svg"
-          style="width: 40vw; height: 40vh; margin-top: -20px"
-        />
-      </div>
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          background-color: white;
-          width: 50vw;
-          height: 100vh;
-          padding-top: 20vh;
-        "
-      >
-        <h1>Welcome to UniShark</h1>
 
-        <form action="/user/auth.php" method='POST' style="width: 30vw" id="signupForm" >
-          <input id="action" name="action" value="signup" hidden />
-          <div style="display: flex; flex-direction: column">
-            <label style="font-weight: 700" for="fullname">Họ và tên</label>
-            <input
-              type="text"
-              id="fullname"
-              name="fullname"
-              placeholder="Nhập họ và tên của bạn..."
-              style="border-radius: 8px; padding: 10px; font-weight: 600"
-            />
-          </div>
-
-          <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="username">Tên người dùng</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Nhập tài khoản của bạn..."
-              style="border-radius: 8px; padding: 10px; font-weight: 600"
-            />
-          </div>
-          <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="password">Mật khẩu</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Nhập mật khẩu của bạn..."
-              style="border-radius: 8px; padding: 10px; font-weight: 600"
-            />
-          </div>
-          <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="confirmPassword"
-              >Xác nhận mật khẩu</label
-            >
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Nhập mật khẩu của bạn..."
-              style="border-radius: 8px; padding: 10px; font-weight: 600"
-            />
-          </div>
-          <div style="display: flex; flex-direction: column; margin-top: 24px">
-            <label style="font-weight: 700" for="email"
-              > Email</label
-            >
-            <input
-              type="mail"
-              id="email"
-              name="email"
-              placeholder="Nhập email của bạn..."
-              style="border-radius: 8px; padding: 10px; font-weight: 600"
-            />
-          </div>
-          <div style="display: flex; flex-direction: column; margin-top: 24px">
-          <label style="font-weight: 700" for="gender"> Gender:</label>
-              <select name="gender" id="gender" style="border-radius: 8px; padding: 10px; font-weight: 600">
-                  <option selected value="M"> Nam </option>
-                  <option value="F"> Nữ </option>
-                  <option value="U"> Không đề cập </option>
-              </select>
-          </div>
-          <button type="submit" style="width: 31.5vw; margin-top: 24px" onclick="validate()">
-            Đăng ký
-          </button>
-        </form>
-
-        <div style="margin-top: 24px">
-          <span style="font-size: small; font-weight: 600; color: gray"
-            >Bạn đã có tài khoản, bấm đây để đăng nhập
-          </span>
-          <a
-            href="signin.php"
-            style="
-              text-decoration: none;
-              color: #007bff;
-              text-decoration: underline;
-            "
-            > Đăng nhập</a
-          >
-        </div>
-      </div>
+  <div style="display: flex; align-items: center; ">
+    <div style="display: flex; align-items: center; flex-direction: column; justify-content: center; background-color: #f0f0f0; width: 50vw; height: 100vh;">
+      <img src="../assets/shark.svg" style="width: 30vw; height: 30vh; margin-top: -20px"/>
     </div>
-  </body>
+    <div style="display: flex; align-items: center; flex-direction: column; background-color: white; width: 50vw; padding-top: 5vh; padding-bottom: 5vh;">
+      <h1>Welcome to UniShark</h1>
+
+      <form action="/user/auth.php" method='POST' style="width: 30vw" id="signupForm" >
+        <input id="action" name="action" value="signup" hidden />
+        <div style="display: flex; flex-direction: column">
+          <label style="font-weight: 700" for="fullname">Họ và tên</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Nhập họ và tên của bạn..."
+            style="border-radius: 8px; padding: 10px; font-weight: 600"
+          />
+        </div>
+
+        <div style="display: flex; flex-direction: column; margin-top: 24px">
+          <label style="font-weight: 700" for="username">Tên người dùng</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Nhập tài khoản của bạn..."
+            style="border-radius: 8px; padding: 10px; font-weight: 600"
+          />
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 24px">
+          <label style="font-weight: 700" for="password">Mật khẩu</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Nhập mật khẩu của bạn..."
+            style="border-radius: 8px; padding: 10px; font-weight: 600"
+          />
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 24px">
+          <label style="font-weight: 700" for="confirmPassword">Xác nhận mật khẩu</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Nhập mật khẩu của bạn..."
+            style="border-radius: 8px; padding: 10px; font-weight: 600"
+          />
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 24px">
+          <label style="font-weight: 700" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Nhập email của bạn..."
+            style="border-radius: 8px; padding: 10px; font-weight: 600"
+          />
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 24px">
+        <label style="font-weight: 700" for="gender"> Gender:</label>
+            <select name="gender" id="gender" style="width: 100%; border-radius: 8px; padding: 10px; font-weight: 600">
+                <option selected value="M"> Nam </option>
+                <option value="F"> Nữ </option>
+                <option value="U"> Không đề cập </option>
+            </select>
+        </div>
+        <button type="submit" style="width: 31.5vw; margin-top: 24px" onclick="validate()">
+          Đăng ký
+        </button>
+        <div style="margin-top: 24px">
+          <span style="font-size: small; font-weight: 600; color: gray;">
+            Bạn đã có tài khoản, bấm vào đây để đăng nhập
+          </span>
+          <a href="signin.php" style=" text-decoration: none; color: #007bff; text-decoration: underline;"> Đăng nhập</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</body>
 
   <script>
     var modal = document.getElementsByClassName('modal')[0];
@@ -220,7 +178,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
 }
 
 .container {
