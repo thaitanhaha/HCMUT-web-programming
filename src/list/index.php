@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Information</title>
 
     <style>
@@ -55,32 +56,13 @@
       <?php include '../utils/header.php'?>
     </header>
 
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        padding-left: 10em;
-        padding-top: 1.5em;
-        padding-right: 10em;
-      "
-    >
-      <div style="display: flex; flex-direction: column; margin-top: 3em">
-        <h3>TÌM KIẾM KẾT QUẢ CHO</h3>
-        <span style="font-size: 36px">Áo Thun Cổ Tròn</span>
+    <div style="display: flex; flex-direction: column; height: 100vh; padding-left: 10em; padding-top: 1.5em; padding-right: 10em;">
+      <div style="display: flex; flex-direction: column;">
+        <h4>TÌM KIẾM KẾT QUẢ CHO</h4>
+        <span style="font-size: 24px">Áo Thun Cổ Tròn</span>
       </div>
 
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-top: 32px;
-          border-top: gray 1px solid;
-          padding-top: 20px;
-          padding-right: 40px;
-        "
-      >
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 32px; border-top: gray 1px solid; padding-top: 20px; padding-right: 40px;">
         <div style="display: flex; flex-direction: column; gap: 24px">
           <span style="font-weight: bold">KẾT QUẢ</span>
           <span style="font-weight: 500; font-size: large">
@@ -91,80 +73,30 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); height: 100%; 
-        margin-top: 60px; align-items: center; justify-content: center; grid-row-gap: 50px;">
-        <?php
-          foreach ($products as $product) {
-            $price = $product['price'];
-            $formatted_price = number_format($price, 0, '.', '.');
-            $id = $product['id'];
-
-            echo "
-            <a
-              style='text-decoration: none; color: black'
-              href='/detail/index.php?id=$id'> 
-              <div style='display: flex; flex-direction: column; width: 250px; height:500px; gap: 8px'>
-                <img
-                  style='width: 250px; height: 250px'
-                  src='$product[primary_image]'
-                />
-    
-                <div style='display: flex; align-items: center; gap: 6px'>
-                  <div
-                  style='width: 20px; height: 20px; background-color: #edeef2'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #3e3f44'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #2b2a2f'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #e8d5ce'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #d0c8c3'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #c0856e'
-                  ></div>
-                  <div
-                    style='width: 20px; height: 20px; background-color: #cbbd80'
-                  ></div>
+      <div class="container-fluid" style="margin-top: 60px;">
+        <div class="row justify-content-center">
+            <?php foreach ($products as $product): ?>
+                <div class="col-md-3 mb-4">
+                    <a href="/detail/index.php?id=<?php echo $product['id']; ?>" class="text-decoration-none text-dark">
+                        <div class="card h-100">
+                            <img src="<?php echo $product['primary_image']; ?>" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="font-size-14 text-gray">NAM/NỮ</span>
+                                    <span class="font-size-14 text-gray">XS-XXL</span>
+                                </div>
+                                <h5 class="card-title mb-1"><?php echo $product['name']; ?></h5>
+                                <p class="card-text mb-1"><?php echo number_format($product['price'], 0, '.', '.'); ?> VND</p>
+                                <p class="card-text font-size-18 text-danger"><?php echo $product['descriptiondiscount']; ?></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-    
-                <div
-                  style='
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin-top: 12px;
-                  '
-                >
-                  <span style='font-weight: bold; font-size: 14px; color: gray'
-                    >NAM/NỮ</span
-                  >
-                  <span style='font-weight: bold; font-size: 14px; color: gray'
-                    >XS-XXL</span
-                  >
-                </div>
-      
-                <span style='margin-top: 12px; font-weight: bold; font-size: 20px'>
-                  $product[name]
-                </span>
-      
-                <span style='font-size: 28px; font-weight: 600; color: black'
-                  >$formatted_price VND</span
-                >
-                <span style='font-size: 18px; font-weight: 400; color: red'
-                  >$product[descriptiondiscount]</span
-                >
-              </div>
-            </a>
-          ";
-          }
-        ?>
+            <?php endforeach; ?>
+        </div>
       </div>
+
+
     </div>
   </body>
 </html>

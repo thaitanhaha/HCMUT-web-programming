@@ -24,15 +24,15 @@
 
     <div style="position: relative; width: 100%; height: 100%;">
       <img src="https://im.uniqlo.com/global-cms/spa/resb20b8b895269fdc307bf363393732bccfr.jpg" style="width: 100%; height: 100%;" class="img-fluid" alt="Áo Thun Cổ Tròn Tay Ngắn">
-      <div class="position-absolute text-left w-100 ml-3" style="top: 50%; transform: translateY(-50%); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-        <h1 style="color: white;">Áo Thun Cổ Tròn Tay Ngắn</h1>
-        <p style="color: white;">Kiểu dáng đơn giản, dễ dàng tạo kiểu, mix & match theo phong cách trong bất kì dịp nào.</p>
-        <span style="font-weight: bold; text-decoration: line-through;">293.000 VND</span>
-        <span style="font-weight: 500; font-size: 30px; color: red;">195.000 VND</span>
+      <div class="position-absolute text-left w-100 ml-3" style="top: 50%; transform: translateY(-50%);">
+        <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Áo Thun Cổ Tròn Tay Ngắn</h1>
+        <p style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Kiểu dáng đơn giản, dễ dàng tạo kiểu, mix & match theo phong cách trong bất kì dịp nào.</p>
+        <span style="font-weight: bold; text-decoration: line-through; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">293.000 VND</span>
+        <span style="font-weight: 500; font-size: 30px; color: red; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">195.000 VND</span>
         <br>
         <span style="color: red;">Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024</span>
         <br>
-        <a href="/list/index.php?name=summer_short" class="btn btn-primary mt-3">Khám phá ngay</a>
+        <a href="/list/index.php?name=summer_short" class="btn btn-light btn-lg mt-3" style="height: 50px; border: 1px solid black">Khám phá ngay</a>
       </div>
     </div>
 
@@ -46,7 +46,7 @@
         <br>
         <span style="color: red;">Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024</span>
         <br>
-        <a href="/list/index.php?name=summer_pant" class="btn btn-primary mt-3">Khám phá ngay</a>
+        <a href="/list/index.php?name=summer_pant"  class="btn btn-light btn-lg mt-3" style="height: 50px; border: 1px solid black">Khám phá ngay</a>
       </div>
     </div>
 
@@ -60,7 +60,7 @@
         <br>
         <span style="color: red;">Khuyến Mãi Có Hạn Từ 26.04 - 20.05.2024</span>
         <br>
-        <a href="/list/index.php?name=summer_skirt" class="btn btn-primary mt-3">Khám phá ngay</a>
+        <a href="/list/index.php?name=summer_skirt"  class="btn btn-light btn-lg mt-3" style="height: 50px; border: 1px solid black">Khám phá ngay</a>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
         <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">UNISHARK x Marimekko</h1>
         <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">BST Phiên Bản Giới Hạn Mùa Hè 2024</h1>
         <p style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Chuyến dã ngoại vào ngày hè rực nắng. Ra mắt ngày 10.05.2024</p>
-        <a href="/list/index.php?name=summer_marimekko" class="btn btn-primary mt-3">Khám phá ngay</a>
+        <a href="/list/index.php?name=summer_marimekko"  class="btn btn-light btn-lg mt-3" style="height: 50px; border: 1px solid black">Khám phá ngay</a>
       </div>
     </div>
 
@@ -80,7 +80,7 @@
         <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Minecraft</h1>
         <p style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Bộ suu tập đặc biệt về trò chơi Minecraft nổi tiếng thế giới.</p>
         <p style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Ra mắt ngày 10.05.2024</p>
-        <a href="/list/index.php?name=summer_minecraft" class="btn btn-primary mt-3">Khám phá ngay</a>
+        <a href="/list/index.php?name=summer_minecraft"  class="btn btn-light btn-lg mt-3" style="height: 50px; border: 1px solid black">Khám phá ngay</a>
       </div>
     </div>
 
