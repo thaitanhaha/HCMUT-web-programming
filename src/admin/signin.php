@@ -14,42 +14,12 @@
       </div>
     </div>
 
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        overflow-y: hidden;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          background-color: #f6f6f6;
-          width: 50vw;
-          height: 100vh;
-        "
-      >
-        <img
-          src="../assets/shark.svg"
-          style="margin-top: -20px"
-        />
+    <div style="display: flex; align-items: center; ">
+      <div style="display: flex; align-items: center; flex-direction: column; justify-content: center; background-color: #f0f0f0; width: 50vw;">
+        <img src="../assets/shark.svg" style="width: 30vw; height: 30vh; margin-top: -20px"/>
       </div>
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          background-color: white;
-          width: 50vw;
-          height: 100vh;
-          padding-top: 20vh;
-        "
-      >
+    
+      <div style="display: flex; align-items: center; flex-direction: column; background-color: white; width: 50vw; height: 100vh; padding-top: 20vh;">
         <h1>Welcome to UniShark</h1>
 
         <form action="/admin/auth.php" style="width: 30vw" id="signinForm" method="POST">

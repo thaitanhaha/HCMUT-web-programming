@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
-    <?php include "../utils/header.php" ?>
+    <?php include "../utils/admin_header.php" ?>
 </header>
 <head>
     <meta charset="UTF-8">
