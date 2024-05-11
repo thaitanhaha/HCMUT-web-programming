@@ -34,7 +34,15 @@
       $sqlUser = "SELECT * FROM user";
       $resultUser = $conn->query($sqlUser);
       
+      session_start();
 
+      // Don't allow access if the user is not admin
+      if (!isset($_SESSION['admin_session']))
+      {
+          header('Location: /admin/signin.php');
+      }
+
+      
   ?>
 
   <body>
@@ -47,8 +55,6 @@
         <div style="display: flex; flex-direction: column; width: 200px; gap: 12px">
           <h4>Quản lý hệ thống</h4>
           <a href="/management/news.php" style="margin-left: 1em">Tin tức</a>
-          <!-- <span style="margin-left: 1em">Thành viên</span>
-          <span style="margin-left: 1em">Bình luận</span> -->
         </div>
 
         <div
@@ -89,45 +95,6 @@
               margin-bottom: 2em;
             "
           ></div>
-
-          <!-- <div style="display: flex; align-items: center; gap: 5em">
-            <button
-              style="
-                border: 1px black solid;
-                width: 200px;
-                height: 50px;
-                background-color: white;
-                color: black;
-                font-weight: 700;
-              "
-            >
-              QUẢN LÝ SẢN PHẨM
-            </button>
-            <button
-              style="
-                border: 1px black solid;
-                width: 200px;
-                height: 50px;
-                background-color: white;
-                color: black;
-                font-weight: 700;
-              "
-            >
-              QUẢN LÝ THÀNH VIÊN
-            </button>
-            <button
-              style="
-                border: 1px black solid;
-                width: 200px;
-                height: 50px;
-                background-color: white;
-                color: black;
-                font-weight: 700;
-              "
-            >
-              QUẢN LÝ BÌNH LUẬN
-            </button>
-          </div> -->
         </div>
       </div>
     </div>
