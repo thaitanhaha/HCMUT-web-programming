@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Information</title>
+    <title>Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -52,14 +52,13 @@
       "
     >
       <h1>GIỎ HÀNG</h1>
-      <label for="total"><h3>Tổng cộng: </h3></label> <input class="form-input" type="text" id="total" value="0" readonly>
 
-      <div class="d-flex justify-content-between" style="margin: 10px">
+      <div class="m-0 p-0 mt-3 mb-3" style="margin: 10px">
         <button class="btn btn-danger" onclick="clearCart()">Xóa tất cả</button>
         <button class="btn btn-primary" onclick="window.location.href='/homepage/'">Tiếp tục mua hàng</button>
       </div>
       <table class="table table-bordered align-middle">
-        <thead>
+        <thead style="text-align: center;">
           <tr>
             <th scope="col">STT</th>
             <th scope="col">Tên sản phẩm</th>
@@ -68,7 +67,7 @@
             <th scope="col">Hành động</th>
           </tr>
         </thead>
-        <tbody id='cartTable'>
+        <tbody style="text-align: center;" id='cartTable'>
           
 
  
@@ -179,6 +178,7 @@
         }
         else {
           let cartTable = document.getElementById('cartTable');
+          let total = 0;
           data.forEach((item, index) => {
               total += item.cost;
               let row = document.createElement('tr');
@@ -189,9 +189,9 @@
               name.textContent = item.name;
               let quantity = document.createElement('td');
               quantity.textContent = item.quantity;
-              quantity.style = 'text-align: right';
+              quantity.style = 'text-align: center';
               let cost = document.createElement('td');
-              cost.style = 'text-align: right';
+              cost.style = 'text-align: center';
               cost.textContent = formatCost(item.cost);
               let action = document.createElement('td');
               action.className = 'd-flex grid justify-content-around';
@@ -221,8 +221,27 @@
               row.appendChild(action);
               cartTable.appendChild(row);
           });
-          let totalInput = document.getElementById('total');
-          totalInput.value = formatCost(total);z
+
+          let totalRow = document.createElement('tr');
+
+          let totalCostCell = document.createElement('td');
+          totalCostCell.style = 'text-align: center;';
+          totalCostCell.setAttribute('colspan', '3');
+          totalCostCell.innerHTML = '<strong>Tổng cộng</strong>';
+          totalRow.appendChild(totalCostCell);
+
+          let totalValueCell = document.createElement('td');
+          totalValueCell.style = 'text-align: center;';
+          totalValueCell.setAttribute('colspan', '1');
+          totalValueCell.textContent = formatCost(total);
+          totalRow.appendChild(totalValueCell);
+
+          let emptyCell = document.createElement('td');
+          emptyCell.setAttribute('colspan', '1');
+          emptyCell.textContent = "";
+          totalRow.appendChild(emptyCell);
+
+          cartTable.appendChild(totalRow);
         }
 })
 </script>

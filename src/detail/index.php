@@ -4,26 +4,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>UniShark</title>
 
     <style>
       body {
-        font-family: sans-serif;
+        font-family: Arial, sans-serif;
         padding: 0;
+        margin: 0;
         overflow-x: hidden;
       }
       .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
         left: 0;
         top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
       }
 
       .modal-content {
@@ -88,315 +90,203 @@
       <?php include '../utils/header.php'?>
     </header>
 
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        padding-left: 10em;
-        padding-top: 1.5em;
-        padding-right: 10em;
-        overflow-y: auto;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          margin-bottom: 40px;
-        "
-      >
+    <div style="display: flex; flex-direction: column;">
+      <div style=" display: flex; align-items: center; gap: 16px; margin: 20px; margin-left: 50px">
         <a href="/homepage/">
-          <span style="color: gray;  font-size: 14px"
-              >TRANG CHỦ UNISHARK</span
-            >
+          <span style="color: gray; font-size: 14px">TRANG CHỦ UNISHARK</span>
         </a>
-        
 
-        <span style="color: gray; text-decoration: underline; font-size: 14px"
-          >/</span
-        >
+        <span style="color: gray; text-decoration: underline; font-size: 14px">/</span>
 
         <?php 
           echo "<span style='color: gray; text-decoration: underline; font-size: 14px'>$rowproduct[name]</span>";
         ?>
       </div>
-
-      <div
-        style="display: flex; gap: 2em; width: 100%; height: 70em;"
-      >
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 2em;
-            width: 55%;
-            height: 100%;
-          "
-        >
-
-        <div style="display: flex; width: 100%; gap: 2em;">
-
-
-          <!-- Left pane -->
-          <div id="imagePanel" style="display: grid; grid-template-columns: 50px 50px; grid-auto-rows: 50px; gap:16px;">
-
-            <?php
-              if (isset($imagepanel)) {
-                foreach ($imagepanel as $key => $value) {
-                  echo "<img src='$value' 
-                              style='width: 60px; height: 60px; border: 1px solid black'
-                              onClick='changeImage(\"$value\")'></img>";
+      
+      <div class="container">
+        <div class="row">
+          <div style="display: flex; gap: 2em;">
+            <div id="imagePanel" style="display: grid; grid-template-columns: 50px 50px; grid-auto-rows: 50px; gap:16px;">
+              <?php
+                if (isset($imagepanel)) {
+                  foreach ($imagepanel as $key => $value) {
+                    echo "<img src='$value' 
+                                style='width: 60px; height: 60px; border: 1px solid black'
+                                onClick='changeImage(\"$value\")'></img>";
+                  }
                 }
-              }
-            ?>
+              ?>
 
-            <script>
-              function changeImage(source) {
-                // Get the reference to the image element in the selectedImagePane
-                var primaryImage = document.getElementById('primaryImage');
-                // Change the source of the image to the clicked thumbnail
-                primaryImage.src = source;
-              }
-            </script>
+              <script>
+                function changeImage(source) {
+                  var primaryImage = document.getElementById('primaryImage');
+                  primaryImage.src = source;
+                }
+              </script>
+            </div>
 
+            <div style="display: flex; height: 30em;">
+              <?php
+                echo "<img id='primaryImage' src='$rowproduct[primary_image]' style='width: 100%; height: 100%'></img>";
+              ?>
+            </div>
           </div>
 
+          <div style="display: flex; flex-direction: column; margin-left: 20px; width: 35%; height: 100%; gap: 0.5em;">
+            <span style="font-size: 30px; margin-top: 10px;">
+              <?php
+                echo "<strong>$rowproduct[name]</strong>"
+              ?>
+            </span>
 
-          <!-- Middle pane -->
-          <div style="display: flex; width: 100%; height: 30em;">
-            <?php
-              echo "<img id='primaryImage' src='$rowproduct[primary_image]' style='width: 100%; height: 100%'></img>";
-            ?>
+            <span style="text-decoration: line-through; font-size: 16px; font-weight: bold;">
+              <?php
+                $price = $rowproduct['price'];
+                $formatted_price = number_format($price, 0, '.', '.');
+                echo "<strong>$formatted_price VND</strong>";
+              ?>
+            </span>
+
+            <span style="font-size: 20px; font-weight: bold; color: red;">
+              <?php
+                $price = $rowproduct['price'];
+                $percent = $rowproduct['percentdiscount'];
+                $discount = $price * $percent / 100;
+                $newprice = $price - ($price * $percent /100);
+                $final_price = floor($newprice);
+                $formatted_price = number_format($final_price, 0, '.', '.');
+                echo "<strong>$formatted_price VND</strong>";
+              ?>
+            </span>
+
+            <span style="font-size: 20px; color: red; font-weight: 500; margin-top: 8px; width: 16em;">
+              <?php
+                echo "<strong>$rowproduct[descriptiondiscount]</strong>";
+              ?>
+            </span>
+
+            <span id="colorName" style="font-weight: bold; font-size: 16px;">MÀU SẮC</span>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <?php
+                if (isset($colorpanel)){
+                  foreach ($colorpanel as $key => $value) {
+                    echo "<img src='$value' 
+                          style='width: 60px; height: 60px; border: 1px solid black'
+                          onClick='updatePrimaryImage(\"$value\" , \"$key\")'></img>";
+                  }
+                }
+              ?>
+              <script>
+                function updatePrimaryImage(source, name) {
+                  var primaryImage = document.getElementById('primaryImage');
+                  var colorName = document.getElementById('colorName');
+
+                  primaryImage.src = source;
+                  colorName.innerHTML = name;
+                }
+              </script>
+            </div>
+
+            <span id="sizeName" style="font-weight: bold; font-size: 16px; margin-top: 16px;">KÍCH CỠ: S</span>
+            <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;">
+              <?php
+                  $sizes = array("XS", "S", "M", "L", "XL", "XXL");
+                  foreach ($sizes as $size) {
+                    echo "<div style='display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid' onClick='updateSizename(\"$size\")'>";
+                    echo $size; 
+                    echo '</div>';
+                  }
+              ?>
+              <script>
+                  function updateSizename(size) {
+                    var sizeName = document.getElementById('sizeName');
+
+                    sizeName.innerHTML = "KÍCH CỠ: " + size;
+                  }
+              </script>
+            </div>
+
+            <form method="POST" action="/cart/manage.php" id='cart'>
+              <span style="font-weight: bold; font-size: 16px; margin-top: 16px;">SỐ LƯỢNG</span>
+              <select id="quantity" name="quantity" style="border: 1px black solid; width: 10em; height: 3em; padding-left: 12px;  background-color: white;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+                <input hidden name="action" value="add">
+                <input hidden name="id" value="<?php echo $rowproduct['id']?>"> 
+                <button onclick="addingtoCart()" style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
+                <span style="font-size: 20px; font-weight: 600; color: white;" >THÊM VÀO GIỎ HÀNG</span>
+                </button>
+            </form>
           </div>
-
         </div>
-
-
-        <div style="display: flex; flex-direction: column; height: 50em; width: 100%; overflow-x: hidden; overflow-y: auto; gap:4em; padding-bottom: 2em; padding-top: 1em;">
-
-
-        <div style="display: flex; flex-direction: column; width: 100%; gap:8px;">
-          <div style="display: flex; align-items: baseline; justify-content: space-between;">
-              <span style="font-size: 24px; font-weight: 600;">ÁO BRA TOP 100 ĐIỂM</span>
-              <span style="color: gray;">26/04/2024</span>
-          </div>
-          <span style="font-size: 18px; margin-top: 20px;">Kích cỡ đã mua: S</span>
-          <span style="font-size: 18px;">Quần áo có vừa không: Đúng với kích thước</span>
-          <p style="font-size: 16px; letter-spacing: 1px;">
-            Lần đầu mua kiểu áo này ở UniShark, mặc một lần mà mê say đắm, dễ chịu thoải mái cảm giác cơ thể mình được nâng niu vô cùng. Dễ phối đồ, không cần lo tìm áo trong hay miếng dán phù hợp. Thiết kế 2 in 1 siêu đỉnh, tiếc là không mua sớm hơn ạ.
-          </p>
-          <span style="color: gray; font-size: 14px;">· Nữ
-             · 25 đến 34 tuổi
-             · Chiều cao: 161 - 165cm
-             · Cân nặng: 51 - 55kg
-             · Cỡ giày: EU36
-             · Bắc Ninh</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; width: 100%; gap:8px;">
-          <div style="display: flex; align-items: baseline; justify-content: space-between;">
-              <span style="font-size: 24px; font-weight: 600;">ÁO BRA TOP 100 ĐIỂM</span>
-              <span style="color: gray;">26/04/2024</span>
-          </div>
-          <span style="font-size: 18px; margin-top: 20px;">Kích cỡ đã mua: S</span>
-          <span style="font-size: 18px;">Quần áo có vừa không: Đúng với kích thước</span>
-          <p style="font-size: 16px; letter-spacing: 1px;">
-            Lần đầu mua kiểu áo này ở UniShark, mặc một lần mà mê say đắm, dễ chịu thoải mái cảm giác cơ thể mình được nâng niu vô cùng. Dễ phối đồ, không cần lo tìm áo trong hay miếng dán phù hợp. Thiết kế 2 in 1 siêu đỉnh, tiếc là không mua sớm hơn ạ.
-          </p>
-          <span style="color: gray; font-size: 14px;">· Nữ
-             · 25 đến 34 tuổi
-             · Chiều cao: 161 - 165cm
-             · Cân nặng: 51 - 55kg
-             · Cỡ giày: EU36
-             · Bắc Ninh</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; width: 100%; gap:8px;">
-          <div style="display: flex; align-items: baseline; justify-content: space-between;">
-              <span style="font-size: 24px; font-weight: 600;">ÁO BRA TOP 100 ĐIỂM</span>
-              <span style="color: gray;">26/04/2024</span>
-          </div>
-          <span style="font-size: 18px; margin-top: 20px;">Kích cỡ đã mua: S</span>
-          <span style="font-size: 18px;">Quần áo có vừa không: Đúng với kích thước</span>
-          <p style="font-size: 16px; letter-spacing: 1px;">
-            Lần đầu mua kiểu áo này ở UniShark, mặc một lần mà mê say đắm, dễ chịu thoải mái cảm giác cơ thể mình được nâng niu vô cùng. Dễ phối đồ, không cần lo tìm áo trong hay miếng dán phù hợp. Thiết kế 2 in 1 siêu đỉnh, tiếc là không mua sớm hơn ạ.
-          </p>
-          <span style="color: gray; font-size: 14px;">· Nữ
-             · 25 đến 34 tuổi
-             · Chiều cao: 161 - 165cm
-             · Cân nặng: 51 - 55kg
-             · Cỡ giày: EU36
-             · Bắc Ninh</span>
-        </div>
-
       </div>
-
-        
-        </div>
-
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            margin-left: 20px;
-            width: 35%;
-            height: 100%;
-            gap: 0.5em;
-          "
-          >
-        <span style="font-size: 50px; margin-top: 10px; font-weight: bold;">
-          <?php
-            echo "<strong>$rowproduct[name]</strong>"
-          ?>
-        </span>
-        <span style="text-decoration: line-through; font-size: 20px; font-weight: bold;">
-          <?php
-            $price = $rowproduct['price'];
-            $formatted_price = number_format($price, 0, '.', '.');
-            echo "<strong>$formatted_price VND</strong>";
-          ?>
-        </span>
-        <span style="font-size: 40px; font-weight: bold; color: red;">
-          <?php
-            $price = $rowproduct['price'];
-            $percent = $rowproduct['percentdiscount'];
-            $discount = $price * $percent / 100;
-            $newprice = $price - ($price * $percent /100);
-            $final_price = floor($newprice);
-            $formatted_price = number_format($final_price, 0, '.', '.');
-            echo "<strong>$formatted_price VND</strong>";
-          ?>
-        </span>
-
-        <span style="font-size: 20px; color: red; font-weight: 500; margin-top: 8px; width: 16em;">
-          <?php
-            echo "<strong>$rowproduct[descriptiondiscount]</strong>";
-          ?>
-        </span>
-
-        <div style="width: 100%; background-color: #DADADA; height: 1px; margin-top: 20px; margin-bottom: 20px;"></div>
-
-        <span id="colorName" style="font-weight: bold; font-size: 16px;">MÀU SẮC: 00 WHITE</span>
-        <div style="display: flex; align-items: center; gap: 8px">
-          <?php
-            if (isset($colorpanel)){
-              foreach ($colorpanel as $key => $value) {
-                echo "<img src='$value' 
-                            style='width: 60px; height: 60px; border: 1px solid black'
-                            onClick='updatePrimaryImage(\"$value\" , \"$key\")'></img>";
-              }
-          }
-          ?>
-         <script>
-              function updatePrimaryImage(source, name) {
-                var primaryImage = document.getElementById('primaryImage');
-                var colorName = document.getElementById('colorName');
-
-                primaryImage.src = source;
-                colorName.innerHTML = name;
-              }
-          </script>
-        </div>
-
-
-        <span id="sizeName" style="font-weight: bold; font-size: 16px; margin-top: 16px;">KÍCH CỠ: S</span>
-        <div style="display: flex; align-items: center; gap: 12px">
-          <?php
-              $sizes = array("XS", "S", "M", "L", "XL", "XXL");
-              foreach ($sizes as $size) {
-                echo "<div style='display: flex; align-items: center; justify-content: center; font-size: 20px; width: 50px; height: 50px; border: 1px black solid' onClick='updateSizename(\"$size\")'>";
-                echo $size; 
-                echo '</div>';
-              }
-          ?>
-          <script>
-              function updateSizename(size) {
-                var sizeName = document.getElementById('sizeName');
-
-                sizeName.innerHTML = "KÍCH CỠ: " + size;
-              }
-          </script>
-        </div>
-
-
-        <form method="POST" action="/cart/manage.php" id='cart'>
-        <span style="font-weight: bold; font-size: 16px; margin-top: 16px;">SỐ LƯỢNG</span>
-        <select id="quantity" name="quantity" style="border: 1px black solid; width: 10em; height: 3em; padding-left: 12px;  background-color: white;">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-          <input hidden name="action" value="add">
-          <input hidden name="id" value="<?php echo $rowproduct['id']?>"> 
-          <button onclick="addingtoCart()" style="width: 100%; background-color: red; padding-top: 12px; padding-bottom: 12px; margin-top: 16px;">
-           <span style="font-size: 20px; font-weight: 600; color: white;" >THÊM VÀO GIỎ HÀNG</span>
-          </button>
-        </form>
-      </div>
-      </div>
+    </div>
 
       
-      <span style="font-weight: 700; font-size: 22px; margin-top: 4em;">Gợi ý phối đồ từ StyleHint</span>
-      <span style="font-weight: 500; font-size: 16px; margin-top: 4px; margin-bottom: 0.5em;">Gợi ý phối đồ từ cộng đồng quốc tế</span>
-      <div style="display: flex; align-items: center; height: 25em; gap:2.5em">
+      <p style="display: flex; width: 100%; align-items: center; margin-top: 20px; justify-content: center; font-weight: 700; font-size: 28px;">
+        Gợi ý phối đồ từ StyleHint
+      </p>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px;">
         <?php
           if (isset($imageStyle)) {
             foreach ($imageStyle as $key => $value) {
-              echo "<img style='height: 100%; width:25%;' src='$value'></img>";
+              echo "
+              <div style='display: flex; flex-direction: column; gap:1em; align-items: center;'>
+                <img style='width: 100%; height: 25em;' src='$value'></img>
+              </div>
+              ";
             }
           }
         ?>
       </div>
 
-      <span style="display: flex; width: 100%; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; margin-top: 4em; margin-bottom: 0.5em;">
+      <p style="display: flex; width: 100%; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; margin-bottom: 50px">
         SẢN PHẨM THƯỜNG ĐƯỢC MUA KÈM
-      </span>
-      <div style="display: flex; align-items: center; gap:16px;">
-            <?php
-              $similar_ids = json_decode($rowproduct['similar_ids'], true);
-              $ids = $similar_ids['ids'];
-              for ($i = 0; $i < count($ids); $i++) {
-                $similar_id = $ids[$i];
+      </p>
 
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px;">
+        <?php
+          $similar_ids = json_decode($rowproduct['similar_ids'], true);
+          $ids = $similar_ids['ids'];
+          for ($i = 0; $i < count($ids); $i++) {
+              $similar_id = $ids[$i];
 
-                $sql = "SELECT * FROM product WHERE id = $similar_id";
-                $result = $conn->query($sql);
-                $rowproduct = $result->fetch_assoc();
+              $sql = "SELECT * FROM product WHERE id = $similar_id";
+              $result = $conn->query($sql);
+              $rowproduct = $result->fetch_assoc();
 
-                $price = $rowproduct['price'];
-                $formatted_price = number_format($price, 0, '.', '.');
+              $price = $rowproduct['price'];
+              $formatted_price = number_format($price, 0, '.', '.');
 
-                echo "
-                  <a style='text-decoration: none' href='http://localhost/btl/web-programming/detail/?id=$rowproduct[id]'>
-                    <div style='display: flex; flex-direction: column; gap:1em; height:40em;'>
-                      <img style='width: 20em; height:20em;' src='$rowproduct[primary_image]'></img>
-                      <div style='display: flex; align-items: center; gap:6px'>
-                        <div style='width: 16px; height: 16px; background-color: green; border: 1px solid black;'></div>
-                        <div style='width: 16px; height: 16px; background-color: blue; border: 1px solid black;'></div>
-                        <div style='width: 16px; height: 16px; background-color: yellow; border: 1px solid black;'></div>
-                        <div style='width: 16px; height: 16px; background-color: pink; border: 1px solid black;'></div>
-                      </div>
-            
-                      <div style='display: flex; align-items: center; justify-content: space-between; margin-top: 0.5em;'>
-                        <span style='color: gray; font-weight: 600;'>NAM / NỮ</span>
-                        <span style='color: gray; font-weight: 600;'>XS-XXL</span>
-                      </div>
-            
-                      <span style='font-weight: 800; font-size: 20px; color:black'>$rowproduct[name]</span>
-                      <span style='font-weight: 600; font-size: 16px; color:gray'>$formatted_price VND</span>
+              echo "
+                <a style='text-decoration: none' href='http://localhost/detail/?id=$rowproduct[id]'>
+                    <div style='display: flex; flex-direction: column; gap:1em; align-items: center;'>
+                        <div style='display: flex; flex-direction: column; align-items: center; width: 100%; height:20em;'>
+                            <img style='width:90%; height:90%;' src='$rowproduct[primary_image]'></img>
+                        </div>
+                        <div style='display: flex; align-items: center; gap:6px'>
+                            <div style='width: 16px; height: 16px; background-color: green; border: 1px solid black;'></div>
+                            <div style='width: 16px; height: 16px; background-color: blue; border: 1px solid black;'></div>
+                            <div style='width: 16px; height: 16px; background-color: yellow; border: 1px solid black;'></div>
+                            <div style='width: 16px; height: 16px; background-color: pink; border: 1px solid black;'></div>
+                        </div>
+                        <span style='font-size: 20px; color:black; text-align: center;'>$rowproduct[name]</span>
+                        <span style='font-size: 16px; color:gray;'>$formatted_price VND</span>
                     </div>
-                  </a>
-                ";
-              }
-            ?>
+                </a>
+            ";
+          }
+        ?>
       </div>
-    </div>
+
   </body>
 </html>
+
+
 <div id="modal" class="modal" hidden >
   <div class="modal-content">
     <span class="close">&times;</span>

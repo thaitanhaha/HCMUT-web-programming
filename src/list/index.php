@@ -8,8 +8,9 @@
 
     <style>
       body {
-        font-family: sans-serif;
+        font-family: Arial, sans-serif;
         padding: 0;
+        margin: 0;
         overflow-x: hidden;
       }
     </style>
@@ -88,38 +89,10 @@
             ?>
           </span>
         </div>
-
-        <div style="display: flex; flex-direction: column; gap: 12px">
-          <span style="font-weight: bold">SẮP XẾP THEO</span>
-
-          <select
-            style="
-              border: black 1px solid;
-              padding-left: 1em;
-              padding-right: 1em;
-              padding-top: 0.5em;
-              padding-bottom: 0.5em;
-              background-color: white;
-            "
-          >
-            <option value="default">Mặc định</option>
-            <option value="desc">Giá: Thấp đến cao</option>
-            <option value="asc">Giá: Cao đến thấp</option>
-          </select>
-        </div>
       </div>
 
-      <div
-        style="
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          height: 100%;
-          margin-top: 60px;
-          align-items: center;
-          justify-content: center;
-          grid-row-gap: 50px;
-        "
-      >
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); height: 100%; 
+        margin-top: 60px; align-items: center; justify-content: center; grid-row-gap: 50px;">
         <?php
           foreach ($products as $product) {
             $price = $product['price'];
@@ -195,3 +168,5 @@
     </div>
   </body>
 </html>
+
+
